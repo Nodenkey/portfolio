@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
-import {palette, typeScale} from "../../utils";
+import {palette} from "../../utils";
+import {typeScale} from "../../utils/typeScale";
 
 
 //Divs & Containers
@@ -128,8 +129,8 @@ export const Cursor = styled.div`
   border-radius: 100%;
   border-color: ${palette.radical};
   //the problem
-  -webkit-transition:  300ms linear;
-  transition:  300ms linear;
+  -webkit-transition:  300ms ease-in-out;
+  transition:  300ms ease-in-out;
   //
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -137,15 +138,17 @@ export const Cursor = styled.div`
   will-change: height, width, border;
   pointer-events: none;
   z-index: 99999999999999;
-  ${props => props.hovered && css`
-    background: transparent;
-    border: 1.5px dashed ${palette.radical};
-    transform-origin: center;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 3.5s linear infinite forwards;
-    animation: spin 4s linear infinite forwards;
-`}
+  &.hovered {
+  background: transparent;
+  border: 1.5px dashed ${palette.radical};
+  transform-origin: center;
+  transition-property: height, width, border;
+  will-change: height, width, border;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 3.5s linear infinite forwards;
+  animation: spin 4s linear infinite forwards;
+  }
   &.clicked {
     -webkit-animation: color-change 500ms ease-in-out both;
     animation: color-change 500ms ease-in-out both;

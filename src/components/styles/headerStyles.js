@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {motion} from "framer-motion";
 
 
-export const HeaderContainer = styled(motion.div)`
+export const HeaderContainer = styled(motion.header)`
   height: 90px;
   width: 100%;
   padding: 30px 5vw;

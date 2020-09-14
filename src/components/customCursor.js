@@ -2,12 +2,14 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Cursor} from "./styles/globalStyles";
 
 //Context
+import {useGlobalStateContext} from "../context/globalContext";
 
 
 
 const CustomCursor = () => {
 
     let cursorRef = useRef(null);
+    const  {cursorType} = useGlobalStateContext();
 
     const [mousePointer, setMousePointer] = useState({
         x: 400,
@@ -16,18 +18,18 @@ const CustomCursor = () => {
 
 
     const onMouseMove = event => {
-        const {clientX: x, clientY: y} = event;
-        setMousePointer({x, y});
+       const {clientX: x, clientY: y} = event;
+       setMousePointer({x, y});
     }
 
     useEffect(() => {
         typeof window !== undefined && cursorRef.current !== null ?
             window.onclick = () => {
-                cursorRef.current.classList.add('clicked');
-                setTimeout(() => {
-                    cursorRef.current.classList.remove('clicked');
-                }, 600)
-            }: console.log();
+            cursorRef.current.classList.add('clicked');
+            setTimeout(() => {
+                cursorRef.current.classList.remove('clicked');
+            }, 600)
+        }: console.log();
 
         document.addEventListener('mousemove', onMouseMove)
         return () => {
@@ -37,11 +39,12 @@ const CustomCursor = () => {
 
     return (
         <>
-            <Cursor
-                id="cursor"
-                ref={cursorRef}
-                style={{left: `${mousePointer.x}px`, top: `${mousePointer.y}px`}}
-            />
+         <Cursor
+             id="cursor"
+             ref={cursorRef}
+             className={`${!!cursorType ? 'hovered' : ''}`}
+             style={{left: `${mousePointer.x}px`, top: `${mousePointer.y}px`}}
+         />
         </>
     );
 };
