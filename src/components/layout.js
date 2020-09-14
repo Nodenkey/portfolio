@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState, useContext} from "react"
 import PropTypes from "prop-types"
 import {ThemeProvider} from "styled-components";
 import {document, window} from 'browser-monads';
+import {useGlobalStateContext, GlobalStateContext} from "./context/globalContext";
 
 
 //styled components
@@ -32,8 +33,8 @@ const GlobalStyle = createGlobalStyle`
  }
  body {
  font-family: Numans, sans-serif;
- background-color: ${props => props.theme ? props.theme.background : 'black'};
- color: ${props => props.theme ? props.theme.primaryTextColor : 'white'};
+ background-color: ${props => props.theme.background};
+ color: ${props => props.theme.primaryTextColor};
  overflow-x: hidden;
  }
 `;
@@ -41,42 +42,22 @@ const GlobalStyle = createGlobalStyle`
 
 const Layout = ({children}) => {
 
-    // Menu
-    const [toggleMenu, setToggleMenu] = useState(false);
-
-    //Hover mouse
-    const [hovered, setHovered] = useState(false);
-
-    const makeHovered = () => {
-        setHovered(true);
-    }
-    const unHover = () => {
-        setHovered(false);
-    }
-
-    //Theme
-    const [currentTheme, setCurrentTheme] = useState(window.localStorage.getItem( 'theme') || 'dark');
-
-    const toggleTheme = () => {
-        if (currentTheme === 'dark'){
-            setCurrentTheme('light');
-            window.localStorage.setItem('theme', 'light');
-        }else{
-            setCurrentTheme('dark');
-            window.localStorage.setItem('theme', 'dark');
-        }
-    }
-
+    const {currentTheme} = useGlobalStateContext();
+    console.log('layout', currentTheme)
+    console.log('the type', typeof currentTheme);
 
     return (
-        <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
-            <GlobalStyle/>
-            <CustomCursor hovered={hovered}/>
-            <Header makeHovered={makeHovered} unHover={unHover} toggleTheme={toggleTheme} currentTheme={currentTheme}/>
-            <main>{
-                children
-            }</main>
-        </ThemeProvider>
+            <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
+                {
+                    console.log('inward', currentTheme)
+                }
+                <GlobalStyle/>
+                <CustomCursor/>
+                <Header/>
+                <main>{
+                    children
+                }</main>
+            </ThemeProvider>
     )
 }
 

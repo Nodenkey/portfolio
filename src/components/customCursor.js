@@ -5,7 +5,7 @@ import {Cursor} from "./styles/globalStyles";
 
 
 
-const CustomCursor = ({hovered}) => {
+const CustomCursor = () => {
 
     let cursorRef = useRef(null);
 
@@ -41,7 +41,6 @@ const CustomCursor = ({hovered}) => {
                 id="cursor"
                 ref={cursorRef}
                 style={{left: `${mousePointer.x}px`, top: `${mousePointer.y}px`}}
-                hovered={hovered}
             />
         </>
     );

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react"
+import React, {useContext, useEffect, useRef} from "react"
 import {Link} from "gatsby"
 import PropTypes from "prop-types"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -9,15 +9,30 @@ import {gsap, ScrollTrigger} from "gsap/all";
 import {Container, Flex} from "./styles/globalStyles";
 import {HeaderContainer, Logo, Menu, ThemeSwitch} from "./styles/headerStyles";
 import {NiiLogo, Sun} from "./svg";
+import {TOGGLE_THEME} from "./context/constants";
 
 //Context
+import {useGlobalStateContext, useGlobalDispatchContext} from "./context/globalContext";
 
 
-const Header = ({makeHovered, unHover, toggleTheme, currentTheme}) => {
+const Header = () => {
     const headerRef = useRef(null);
     const menuUp = useRef(null);
     const menuDown = useRef(null);
 
+    const {currentTheme} = useGlobalStateContext();
+    console.log('theme_header', currentTheme);
+    const {dispatch} = useGlobalDispatchContext();
+    console.log(typeof dispatch);
+
+
+    const toggleTheme = () => {
+        if (currentTheme === 'dark') {
+            dispatch({type: TOGGLE_THEME, theme: 'light'});
+        }else{
+            dispatch({type: TOGGLE_THEME, theme: 'dark'});
+        }
+    }
 
     return (
         <HeaderContainer
@@ -29,27 +44,21 @@ const Header = ({makeHovered, unHover, toggleTheme, currentTheme}) => {
             <Container fluid>
                 <Flex spaceBetween>
                     <Menu
-                        onMouseEnter={makeHovered}
-                        onMouseLeave={unHover}
+
                     >
                         <span ref={menuUp}/>
                         <span ref={menuDown}/>
                     </Menu>
                     <Logo
-                        onMouseEnter={makeHovered}
-                        onMouseLeave={unHover}
+
                     >
                         <Link to='/'>
                             <NiiLogo/>
                         </Link>
                     </Logo>
-                    <ThemeSwitch
-                    onMouseEnter={makeHovered}
-                    onMouseLeave={unHover}
-                    onClick={toggleTheme}
-                    >
-                        {
-                            currentTheme === 'dark' ? <Sun/> : <FontAwesomeIcon icon={faMoon}/>
+                    <ThemeSwitch onClick={toggleTheme}>
+                        {currentTheme === 'dark' ?
+                            <Sun/> : <FontAwesomeIcon icon={faMoon}/>
                         }
                     </ThemeSwitch>
                 </Flex>
@@ -57,13 +66,4 @@ const Header = ({makeHovered, unHover, toggleTheme, currentTheme}) => {
         </HeaderContainer>
     )
 }
-
-Header.propTypes = {
-    siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-    siteTitle: ``,
-}
-
 export default Header
