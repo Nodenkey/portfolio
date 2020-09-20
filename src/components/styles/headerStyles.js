@@ -24,13 +24,14 @@ export const Menu = styled.button`
   width: 30px;
   height: 2px;
   display: block;
-  background: ${props => props.theme.primaryTextColor};
+  ${props => console.log(props.theme.primaryTextColor)};
+  background-color: ${props => props.theme.primaryTextColor};
   margin: 10px 0;
   }
   @media (min-width: 600px){
-  span{
-    width: 35px;
-  }
+    span{
+      width: 35px;
+    }
   }
 `;
 
