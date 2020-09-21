@@ -43,9 +43,14 @@ export const FooterWrapper = styled.section`
     }
   }
   .social{
+    display: flex;
+    justify-content: center;
     svg{
     font-size: 2rem;
     margin-left: 50px;
+    @media only screen and (max-width: 600px){
+      margin: 20px;
+    }
     }
   }
 `;
