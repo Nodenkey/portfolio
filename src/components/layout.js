@@ -81,13 +81,10 @@ const Layout = ({children}) => {
         <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
             <GlobalStyle/>
             <CustomCursor/>
-            <MenuOverlay show={toggleMenu} onCursor={onCursor} setToggleMenu={setToggleMenu}/>
-            <Header onCursor={onCursor} toggleMenu={toggleMenu} setToggleMenu={setToggleMenu}/>
                 <main>{
-                    children.map((child, index) => React.cloneElement(child, {onCursor: onCursor, key: index}))
+                    children.map((child, index) => React.cloneElement(child, {onCursor: onCursor, toggleMenu: toggleMenu, setToggleMenu: setToggleMenu, key: index}))
                 }
                 </main>
-                <Footer onCursor={onCursor}/>
         </ThemeProvider>
     )
 }

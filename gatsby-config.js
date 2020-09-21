@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Frontend Web Developer`,
+    description: `Nii Odenkey is a frontend web developer based in Accra Ghana.`,
     author: `Nii Odenkey`,
   },
   plugins: [

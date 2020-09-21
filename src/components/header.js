@@ -79,6 +79,10 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
         }
     }
 
+    const toggleOverlay = () => {
+        setToggleMenu(!toggleMenu);
+    }
+
     return (
         <HeaderContainer
             initial={{y: -90, opacity: 0}}
@@ -91,7 +95,7 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
                     <Menu
                         onMouseEnter={() => onCursor('hovered')}
                         onMouseLeave={onCursor}
-                        onClick={() => setToggleMenu(!toggleMenu)}
+                        onClick={toggleOverlay}
                     >
                         <span ref={menuUp}/>
                         <span ref={menuDown}/>

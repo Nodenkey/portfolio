@@ -7,26 +7,27 @@ import {faFacebookF, faGithub, faInstagram, faLinkedinIn, faTwitter} from "@fort
 import {gsap, Power4} from "gsap/all";
 import {AnimatePresence} from "framer-motion";
 
-const MenuOverlay = ({show, onCursor, setToggleMenu}) => {
+const MenuOverlay = ({onCursor, setToggleMenu, toggleMenu}) => {
     const social = useRef(null);
+
 
     useEffect(() => {
         const texts = document.querySelectorAll('.menuText')
-        show && gsap.to(texts, {
+        toggleMenu && gsap.to(texts, {
             duration: 2,
             y: '0',
             ease: Power4.easeOut,
             stagger: .3,
             delay: .5,
         });
-        show && gsap.to(social.current, {
+        toggleMenu && gsap.to(social.current, {
             duration: 2,
             x: '0',
             opacity: 1,
             ease: Power4.easeOut,
             delay: .8,
         })
-    }, [show]);
+    }, [toggleMenu]);
 
     const removeMenu = () => {
         setToggleMenu(false);
@@ -36,11 +37,11 @@ const MenuOverlay = ({show, onCursor, setToggleMenu}) => {
         <>
             <AnimatePresence>
                 {
-                    show && (
+                    toggleMenu && (
                         <OverlayWrapper
                             initial={{x: '-100%'}}
                             exit={{x: '-100%'}}
-                            animate={{x: show ? 0 : '-100%'}}
+                            animate={{x: toggleMenu ? 0 : '-100%'}}
                             transition={{duration: .8, ease: [.6, .05, -.01, .9]}}
                         >
                             <Flex vertical center>

@@ -25,9 +25,9 @@ const CustomCursor = () => {
     useEffect(() => {
         typeof window !== undefined && cursorRef.current !== null ?
             window.onclick = () => {
-            cursorRef.current.classList.add('clicked');
+            cursorRef.current.classList && cursorRef.current.classList.add('clicked');
             setTimeout(() => {
-                cursorRef.current.classList.remove('clicked');
+                cursorRef.current && cursorRef.current.classList.remove('clicked');
             }, 600)
         }: console.log();
 
