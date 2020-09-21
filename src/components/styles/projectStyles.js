@@ -3,10 +3,16 @@ import {palette} from "../../utils";
 
 export const ProjectWrapper = styled.section`
    width: 100%;
-   padding: 150px 5vw 100px;
+   padding: 100px 5vw 100px;
+   >div{
+    padding: 0;
+   }
    .gatsby-image-wrapper {
    width: 100%;
    height: 100%;
+   }
+   @media only screen and (min-width: 600px){
+     padding: 150px 5vw 100px;
    }
 `;
 
@@ -14,9 +20,12 @@ export const ProjectContainer = styled.div`
   display: grid;
   min-width: 100%;
   height: 100%;
-  grid-template-columns: 1fr 1.3fr;
+  grid-template-columns: 1fr;
   .gatsby-image-wrapper {
     transition: 700ms ease-in-out;
+  }
+  @media only screen and (min-width: 600px){
+      grid-template-columns: 1fr 1.3fr;
   }
 `;
 
@@ -53,24 +62,32 @@ export const VisitWebsite = styled.div`
 `;
 
 export const AllProjectContainer = styled.div`
-  width: 96%;
+  width: 100%;
+  padding: 0 5vw;
   //max-height: 700px;
   margin: auto;
   overflow: hidden;
   >div{
   margin: 0 auto 100px;
-  height: 80vh;
   //height: calc(100vh - 90px);
+  }
+  @media only screen and (min-width: 600px){
+    >div{
+       height: 80vh;
+    }
   }
 `;
 
 export const ProjectImage = styled.div`
   overflow: hidden;
-  height: 100%;
+  height: 70vh;
   width: 100%;
   .gatsby-image-wrapper{
   width: 100%;
   height: 100%;
   transform: scale(1);
+  }
+  @media only screen and (min-width: 600px){
+    height: 100%;
   }
 `;

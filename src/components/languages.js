@@ -4,7 +4,7 @@ import {gsap, ScrollTrigger} from "gsap/all";
 
 //Styled component
 import {Css, Figma, Firebase, Flask, GatsbyIcon, Html, Js, Photoshop, Python, ReactIcon, Redux, Webstorm} from "./svg";
-import {LanguageWrapper} from "./styles/languageStyles";
+import {LanguageContainer, LanguageWrapper} from "./styles/languageStyles";
 import {Grid, HeaderThree, Paragraph} from "./styles/globalStyles";
 
 const Languages = () => {
@@ -27,7 +27,7 @@ const Languages = () => {
         <LanguageWrapper id='expertise'>
             <HeaderThree>Languages and tools I use</HeaderThree>
             <Paragraph>Here is a list of languages I know and tools I use on a day to day basis. I use others too but these I must say are my favourite!</Paragraph>
-            <Grid num='4' ref={icons}>
+            <LanguageContainer num='4' ref={icons}>
                 <Html/>
                 <Css/>
                 <Js/>
@@ -40,7 +40,7 @@ const Languages = () => {
                 <Webstorm/>
                 <Photoshop/>
                 <Figma/>
-            </Grid>
+            </LanguageContainer>
         </LanguageWrapper>
     );
 };

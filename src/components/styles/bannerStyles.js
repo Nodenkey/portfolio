@@ -3,7 +3,7 @@ import {palette} from "../../utils";
 import {Container, Flex} from "./globalStyles";
 
 export const BannerWrapper = styled(Flex)`
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   #landing{
       position: absolute !important;
@@ -19,15 +19,15 @@ export const BannerWrapper = styled(Flex)`
     width: 100%;
     height: 100%;
   }
+  @media only screen and (min-width: 600px){
+  height: 100vh;
+  }
 `;
 
 export const BannerText = styled(Container)`
   position: relative;
   z-index: 2;
   height: auto;
-    >div{
-      margin-top: 80px;
-      }
     h4{
       max-width: 600px;
     }
@@ -38,11 +38,23 @@ export const BannerText = styled(Container)`
     transform: translateY(100px);
     opacity: 0;
     }
+    @media only screen and (max-width: 600px){
+      margin: auto;
+      h1{
+        margin: 60px 0 30px;
+      }
+      h4{
+        margin-bottom: 20px;
+      }
+      h5{
+        margin: 0 20px 0 0;
+      }
+    }
 `;
 
 export const ArrowContainer = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   background: none;
   border: 1px solid ${palette.radical};
   position: relative;
@@ -51,7 +63,7 @@ export const ArrowContainer = styled.div`
   justify-content: center;
   align-items: center;
   svg{
-    font-size: 2rem;
+    font-size: 1.2rem;
     animation: arrow 2s ease-in-out both infinite;
   }
   @keyframes arrow {
@@ -67,6 +79,13 @@ export const ArrowContainer = styled.div`
     transform: translateY(20px);
     opacity: 0;
   }
+  }
+  @media only screen and (min-width: 600px){
+    width: 80px;
+    height: 80px; 
+    svg{
+      font-size: 2rem;
+    }
   }
 `;
 

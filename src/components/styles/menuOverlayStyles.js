@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {palette} from "../../utils";
 import {motion} from "framer-motion";
+import {Flex} from "./globalStyles";
 
 export const OverlayWrapper = styled(motion.div)`
   .menuText{
@@ -60,3 +61,9 @@ export const OverlayWrapper = styled(motion.div)`
   }
 `;
 
+export const SocialContainer = styled(Flex)`
+  display: none;
+  @media only screen and (min-width: 600px){
+    display: flex;
+  }
+`;

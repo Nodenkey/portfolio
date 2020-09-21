@@ -93,7 +93,7 @@ const Projects = ({onCursor}) => {
         <ProjectWrapper id='projects'>
             <Container><HeaderThree ref={projectTitle} style={{marginBottom: 50}}>Selected
                 projects</HeaderThree></Container>
-            <AllProjectContainer >
+            <AllProjectContainer>
             {
                 projects.map(project =>
                     <ProjectContainer key={project.key}>

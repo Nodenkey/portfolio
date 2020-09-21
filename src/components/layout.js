@@ -18,7 +18,6 @@ import Footer from "./footer";
 import MenuOverlay from "./menuOverlay";
 
 
-
 const GlobalStyle = createGlobalStyle`
   ${normalize}
   *{
@@ -54,9 +53,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 
-
 const Layout = ({children}) => {
-    const  {currentTheme, cursorStyles} = useGlobalStateContext();
+    const {currentTheme, cursorStyles} = useGlobalStateContext();
     const dispatch = useGlobalDispatchContext();
 
     const onCursor = cursorType => {
@@ -69,10 +67,10 @@ const Layout = ({children}) => {
 
     useEffect(() => {
         const doc = document.querySelector('html');
-        if (toggleMenu){
+        if (toggleMenu) {
             doc.style.height = '100vh';
             doc.style.overflow = 'hidden';
-        }else{
+        } else {
             doc.style.height = 'auto';
             doc.style.overflowY = 'scroll';
         }
@@ -80,22 +78,22 @@ const Layout = ({children}) => {
 
 
     return (
-    <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
-        <GlobalStyle/>
-        <CustomCursor/>
-        <MenuOverlay show={toggleMenu} onCursor={onCursor} setToggleMenu={setToggleMenu}/>
-        <Header onCursor={onCursor} toggleMenu={toggleMenu} setToggleMenu={setToggleMenu}/>
-        <main>{
-          children.map((child, index) => React.cloneElement(child, {onCursor: onCursor, key: index}))
-        }
-        </main>
-        <Footer onCursor={onCursor}/>
-    </ThemeProvider>
-  )
+        <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
+            <GlobalStyle/>
+            <CustomCursor/>
+            <MenuOverlay show={toggleMenu} onCursor={onCursor} setToggleMenu={setToggleMenu}/>
+            <Header onCursor={onCursor} toggleMenu={toggleMenu} setToggleMenu={setToggleMenu}/>
+                <main>{
+                    children.map((child, index) => React.cloneElement(child, {onCursor: onCursor, key: index}))
+                }
+                </main>
+                <Footer onCursor={onCursor}/>
+        </ThemeProvider>
+    )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
 }
 
 export default Layout

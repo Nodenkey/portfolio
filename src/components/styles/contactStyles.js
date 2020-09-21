@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import {palette} from "../../utils";
+import {Grid} from "./globalStyles";
 
 
 export const FooterWrapper = styled.section`
   padding: 100px 5vw 50px;
+  >div:first-of-type{
+    padding: 0;
+  }
   h2{
     margin-bottom: 50px;
   }
@@ -91,5 +95,13 @@ export const FormButton = styled.button`
       color: ${props => props.theme.background};
     }
 ;
+`;
+
+export const FormGrid = styled(Grid)`
+  justify-items: flex-start;
+  width: 100%;
+  label{
+    width: 100%;
+  }
 `;
 

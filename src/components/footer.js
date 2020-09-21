@@ -18,8 +18,8 @@ const Footer = ({onCursor}) => {
             trigger: footer,
                 start: 'center bottom',
             },
-            duration: 1,
-            y: 50,
+            duration: 2,
+            y: -100,
             opacity: 0,
         })
     }, [])
@@ -27,7 +27,7 @@ const Footer = ({onCursor}) => {
     return (
         <FooterWrapper style={{paddingTop: 0}} id='footer'>
             <Divider/>
-            <Flex style={{marginTop: '50px'}} spaceBetween>
+            <Flex style={{marginTop: '50px'}} spaceBetween verticalRPhone>
                 <Paragraph>©Copyright Nii Odenkey {year}.</Paragraph>
                 <div className='social'>
                     <a href="https://github.com/Nodenkey" target='_blank' onMouseEnter={() => onCursor('hovered')}

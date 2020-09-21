@@ -4,7 +4,7 @@ import emailjs from 'emailjs-com';
 
 
 //Styled components
-import {FooterWrapper, FormButton, Input, Label, TextArea} from "./styles/contactStyles";
+import {FooterWrapper, FormButton, FormGrid, Input, Label, TextArea} from "./styles/contactStyles";
 import {
     Container,
     Flex,
@@ -92,7 +92,7 @@ const Contact = () => {
                             you. Feel free to reach out to me.</HeaderFive>
                     </div>
                     <form onSubmit={handleSubmit} ref={form}>
-                        <Grid num='2' gap='40px'>
+                        <FormGrid num='2' gap='40px' gapPhone='0'>
                             <Label>
                                 Name <br/>
                                 <Input type='text' placeholder='Enter full name' name='name'
@@ -103,7 +103,7 @@ const Contact = () => {
                                 <Input type='email' placeholder='Enter your email' name='email'
                                        onChange={handleMailChange}/>
                             </Label>
-                        </Grid>
+                        </FormGrid>
                         <Label>
                             Message
                             <TextArea rows="6" cols="50" placeholder='How can I help you?' name='message'

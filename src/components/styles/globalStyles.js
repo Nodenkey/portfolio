@@ -38,24 +38,36 @@ export const Flex = styled.div`
   
   ${props => props.vertical && css`
     flex-direction: column;
-  `}
+  `};
   
   ${props => props.spaceBetween && css`
     justify-content: space-between;
-  `}
+  `};
   
   ${props => props.center && css`
     justify-content: center;
-  `}
+  `};
+  @media only screen and (max-width: 600px){
+    ${props => props.verticalRPhone && css`
+      flex-direction: column-reverse;
+      *>:last-of-type{
+        margin-bottom: 30px;
+      }
+    `};
+  }
 `;
 
 export const Grid = styled.div`
   display: grid;
   width: 100%;
-  grid-gap: ${props => props.gap || '100px'};
-  grid-template-columns: ${props => typeof props.num === "object" ? `${props.num.toString()}` : `repeat(${props.num}, 1fr)`};
+  grid-gap: ${props => props.gapPhone || '0'};
+  grid-template-columns: 1fr;
   align-items: center;
   justify-items: center;
+  @media only screen and (min-width: 600px){
+      grid-template-columns: ${props => typeof props.num === "object" ? `${props.num.toString()}` : `repeat(${props.num}, 1fr)`};
+      grid-gap: ${props => props.gap || '100px'};
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -71,43 +83,59 @@ export const ImageContainer = styled.div`
 
 //Texts
 export const HeaderOne = styled.h1`
-  font-size: ${typeScale.headerOne};
-  text-transform: uppercase;
-  font-family: Fira Sans, sans-serif;
-  display: block;
-  line-height: 50%;
-`;
-
-export const HeaderTwo = styled.h2`
   font-size: ${typeScale.headerTwo};
   text-transform: uppercase;
   font-family: Fira Sans, sans-serif;
   display: block;
+  line-height: 90%;
+  @media only screen and (min-width: 600px){
+    font-size: ${typeScale.headerOne};
+    line-height: 50%;
+  }
+`;
+
+export const HeaderTwo = styled.h2`
+  font-size: ${typeScale.headerThree};
+  text-transform: uppercase;
+  font-family: Fira Sans, sans-serif;
+  display: block;
   line-height: 120%;
+  @media only screen and (min-width: 600px){
+      font-size: ${typeScale.headerTwo};
+  }
 `;
 
 export const HeaderThree = styled.h3`
-  font-size: ${typeScale.headerThree};
+  font-size: ${typeScale.headerFour};
   text-align: left;
   font-family: Fira Sans, sans-serif;
   display: block;
   line-height: 140%;
+  @media only screen and (min-width: 600px){
+    font-size: ${typeScale.headerThree};
+  }
 `;
 
 export const HeaderFour = styled.h4`
-  font-size: ${typeScale.headerFour};
-  text-align: left;
-  font-family: Chivo, sans-serif;
-  display: block;
-  line-height: 140%;
-`;
-
-export const HeaderFive = styled.h5`
   font-size: ${typeScale.headerFive};
   text-align: left;
   font-family: Chivo, sans-serif;
   display: block;
+  line-height: 140%;
+  @media only screen and (min-width: 600px){
+    font-size: ${typeScale.headerFour};
+  }
+`;
+
+export const HeaderFive = styled.h5`
+  font-size: ${typeScale.paragraph};
+  text-align: left;
+  font-family: Chivo, sans-serif;
+  display: block;
   line-height: 200%;
+  @media only screen and (min-width: 600px){
+    font-size: ${typeScale.headerFive};
+  }
 `;
 
 export const Paragraph = styled.p`
@@ -204,6 +232,9 @@ export const Cursor = styled.div`
   width: 64px;
   height: 64px;
   }
+  }
+  @media only screen and (max-width: 1200px){
+    display: none;
   }
 `;
 

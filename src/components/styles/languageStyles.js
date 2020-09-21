@@ -1,20 +1,16 @@
 import styled from "styled-components";
-import {Container} from "./globalStyles";
+import {Container, Grid} from "./globalStyles";
 
 export const LanguageWrapper = styled(Container)`
-  padding: 100px 5vw;
-  margin: 0 auto;
+  padding: 0 5vw;
+  margin: -50px auto 0;
   p{
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     max-width: 600px;
-    margin-left: 55px;
-  }
-  h3{
-    margin-left: 55px;
   }
   svg, img{
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     filter: grayscale(2);
     transition: 500ms ease-in-out;
     &:hover{
@@ -36,5 +32,29 @@ export const LanguageWrapper = styled(Container)`
   }
   .st4{
   fill:#1abcfe
+  }
+  @media only screen and (min-width: 600px){
+     padding: 100px 5vw; 
+     margin: 0 auto;
+     p{
+      margin-left: 55px;
+      padding-bottom: 100px;
+    }
+    h3{
+      margin-left: 55px;
+    }
+    svg, img{
+        width: 80px;
+        height: 80px;
+  }
+  }
+`;
+
+export const LanguageContainer = styled(Grid)`
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 100px 50px;
+  @media only screen and (min-width: 600px){
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 100px;
   }
 `;

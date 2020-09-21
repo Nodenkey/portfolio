@@ -6,6 +6,7 @@ import {gsap, ScrollTrigger} from "gsap/all";
 
 //Styled components
 import {Container, Grid, HeaderFive, HeaderThree, ImageContainer, Paragraph, Redden} from "./styles/globalStyles";
+import {AboutContainer} from "./styles/aboutStyles";
 
 
 const About = ({onCursor}) => {
@@ -50,7 +51,7 @@ const About = ({onCursor}) => {
  `);
 
     return (
-        <Container style={{padding: '150px 0vw 0'}}>
+        <AboutContainer>
             <Grid num={['1.5fr 2fr']}>
                 <ImageContainer ref={aboutImage} style={{opacity: 0, transform: 'translateX(100px)'}}>
                     <Img fluid={image.me.childImageSharp.fluid}/>
@@ -73,7 +74,7 @@ const About = ({onCursor}) => {
                                                              onMouseLeave={onCursor}>here.</Link></Paragraph>
                 </Container>
             </Grid>
-        </Container>
+        </AboutContainer>
     );
 };
 

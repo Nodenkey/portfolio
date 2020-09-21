@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {Link} from "gatsby";
-import {OverlayWrapper} from "./styles/menuOverlayStyles";
+import {OverlayWrapper, SocialContainer} from "./styles/menuOverlayStyles";
 import {Flex, HeaderFive, HeaderThree} from "./styles/globalStyles";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookF, faGithub, faInstagram, faLinkedinIn, faTwitter} from "@fortawesome/free-brands-svg-icons";
@@ -55,7 +55,7 @@ const MenuOverlay = ({show, onCursor, setToggleMenu}) => {
                                 <Link to='/#contact' onClick={removeMenu}><Flex className='menuText'><HeaderFive>04.</HeaderFive><HeaderThree>Contact
                                     me </HeaderThree></Flex></Link>
                             </Flex>
-                            <Flex vertical ref={social}>
+                            <SocialContainer vertical ref={social} >
                                 <a href="https://github.com/Nodenkey" target='_blank'
                                    rel='noopener noreferrer'
                                    onMouseEnter={() => onCursor('hovered')}
@@ -81,7 +81,7 @@ const MenuOverlay = ({show, onCursor, setToggleMenu}) => {
                                    onMouseEnter={() => onCursor('hovered')}
                                    onMouseLeave={onCursor}
                                 ><FontAwesomeIcon icon={faInstagram}/></a>
-                            </Flex>
+                            </SocialContainer>
                         </OverlayWrapper>
                     )
                 }
