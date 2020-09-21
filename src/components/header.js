@@ -3,7 +3,8 @@ import {Link} from "gatsby"
 import PropTypes from "prop-types"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faMoon} from "@fortawesome/free-solid-svg-icons";
-import {gsap, ScrollTrigger} from "gsap/all";
+import {gsap} from "gsap/all";
+import {window} from "browser-monads";
 
 //Styled components
 import {Container, Flex} from "./styles/globalStyles";
@@ -11,7 +12,7 @@ import {HeaderContainer, Logo, Menu, ThemeSwitch} from "./styles/headerStyles";
 import {NiiLogo, Sun} from "./svg";
 
 //Context
-import {useGlobalStateContext, useGlobalDispatchContext} from "../context/globalContext";
+import {useGlobalDispatchContext, useGlobalStateContext} from "../context/globalContext";
 
 
 const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
@@ -23,28 +24,6 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
     const dispatch = useGlobalDispatchContext();
 
     useEffect(() => {
-        typeof window !== undefined && window.localStorage.setItem('theme', currentTheme);
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        currentTheme === 'dark' ?
-            gsap.to(headerRef.current,
-                {
-                    scrollTrigger: {
-                        scrub: true
-                    },
-                    duration: 1,
-                    backgroundColor: '#000000'
-                }) :
-            gsap.to(headerRef.current,
-                {
-                    scrollTrigger: {
-                        scrub: true
-                    },
-                    duration: 1,
-                    backgroundColor: '#ffffff'
-                });
-
         const tlOne = gsap.timeline({duration: .5});
         const tlTwo = gsap.timeline({duration: .5});
        toggleMenu ? tlOne.to(menuUp.current, {
@@ -69,7 +48,28 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
             rotate: 0
         });
 
-    }, [currentTheme, toggleMenu])
+    }, [toggleMenu])
+
+
+    useEffect(() => {
+        typeof window !== undefined && window.localStorage.setItem('theme', currentTheme);
+
+        window.onscroll= () => {
+            if(currentTheme === 'dark'){
+                if(window.pageYOffset > "150"){
+                    headerRef.current.style.backgroundColor = "black";
+                }else {
+                    headerRef.current.style.backgroundColor = "transparent";
+                }
+            }else{
+                if(window.pageYOffset > "150"){
+                    headerRef.current.style.backgroundColor = "white";
+                }else {
+                    headerRef.current.style.backgroundColor = "transparent";
+                }
+            }
+        }
+    },[currentTheme]);
 
     const toggleTheme = () => {
         if (currentTheme === 'dark') {

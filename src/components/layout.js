@@ -57,6 +57,11 @@ const Layout = ({children}) => {
     const {currentTheme, cursorStyles} = useGlobalStateContext();
     const dispatch = useGlobalDispatchContext();
 
+    useEffect(() => {
+        typeof window !== undefined && window.localStorage.setItem('theme', currentTheme);
+    });
+
+
     const onCursor = cursorType => {
         //check if  cursorType being passed is in cursorStyle in global context
         cursorType = (cursorStyles.includes(cursorType) ? cursorType : false);

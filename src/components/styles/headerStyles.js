@@ -11,6 +11,7 @@ export const HeaderContainer = styled(motion.header)`
   left: 0;
   z-index: 9999999;
   border-bottom: 1px solid ${props => props.theme.borderColor};
+  transition: 500ms ease-in-out;
   background: none;
 `;
 
