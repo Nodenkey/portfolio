@@ -61,7 +61,6 @@ const Layout = ({children}) => {
         typeof window !== undefined && window.localStorage.setItem('theme', currentTheme);
     });
 
-
     const onCursor = cursorType => {
         //check if  cursorType being passed is in cursorStyle in global context
         cursorType = (cursorStyles.includes(cursorType) ? cursorType : false);

@@ -3,7 +3,7 @@ import {palette} from "../../utils";
 
 export const ProjectWrapper = styled.section`
    width: 100%;
-   padding: 100px 5vw 100px;
+   padding: 100px 5vw 0;
    >div{
     padding: 0;
    }

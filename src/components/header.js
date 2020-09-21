@@ -26,23 +26,23 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
     useEffect(() => {
         const tlOne = gsap.timeline({duration: .5});
         const tlTwo = gsap.timeline({duration: .5});
-       toggleMenu ? tlOne.to(menuUp.current, {
-          y: 10,
+        toggleMenu ? tlOne.to(menuUp.current, {
+            y: 10,
         }).to(menuUp.current, {
             rotate: -45,
             y: 5
         }) : tlOne.to(menuUp.current, {
-           y: 0,
-       }).to(menuUp.current, {
-           rotate: 0
-       });
+            y: 0,
+        }).to(menuUp.current, {
+            rotate: 0
+        });
 
         toggleMenu ? tlTwo.to(menuDown.current, {
-          y: -10,
+            y: -10,
         }).to(menuDown.current, {
             rotate: 43,
             y: -7,
-        }):  tlTwo.to(menuDown.current, {
+        }) : tlTwo.to(menuDown.current, {
             y: 0,
         }).to(menuDown.current, {
             rotate: 0
@@ -54,22 +54,36 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
     useEffect(() => {
         typeof window !== undefined && window.localStorage.setItem('theme', currentTheme);
 
-        window.onscroll= () => {
-            if(currentTheme === 'dark'){
-                if(window.pageYOffset > "150"){
+        if(currentTheme === 'dark'){
+            if (window.pageYOffset > "150") {
+                headerRef.current.style.backgroundColor = 'black';
+            }else{
+                headerRef.current.style.backgroundColor = 'transparent';
+            }
+        }else{
+            if (window.pageYOffset > "150") {
+                headerRef.current.style.backgroundColor = 'white';
+            }else{
+                headerRef.current.style.backgroundColor = 'transparent';
+            }
+        }
+
+        window.onscroll = () => {
+            if (currentTheme === 'dark') {
+                if (window.pageYOffset > "150") {
                     headerRef.current.style.backgroundColor = "black";
-                }else {
+                } else {
                     headerRef.current.style.backgroundColor = "transparent";
                 }
-            }else{
-                if(window.pageYOffset > "150"){
+            } else {
+                if (window.pageYOffset > "150") {
                     headerRef.current.style.backgroundColor = "white";
-                }else {
+                } else {
                     headerRef.current.style.backgroundColor = "transparent";
                 }
             }
         }
-    },[currentTheme]);
+    }, [currentTheme]);
 
     const toggleTheme = () => {
         if (currentTheme === 'dark') {

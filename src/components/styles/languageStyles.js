@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {Container, Grid} from "./globalStyles";
 
 export const LanguageWrapper = styled(Container)`
-  padding: 0 5vw;
+  padding: 100px 5vw 0;
   margin: -50px auto 0;
   p{
     padding-bottom: 50px;
