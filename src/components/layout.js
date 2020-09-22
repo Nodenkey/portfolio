@@ -15,6 +15,8 @@ import {useDarkMode} from "../custom-hooks/custom-hook";
 
 //context
 import {useGlobalStateContext, useGlobalDispatchContext} from "../context/globalContext";
+import SuccessModal from "./successModal";
+import FailedModal from "./failedModal";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -58,8 +60,35 @@ const Layout = ({children}) => {
     const {cursorStyles} = useGlobalStateContext();
     const dispatch = useGlobalDispatchContext();
 
+    const [successModal, setSuccessModal] = useState(false);
+    const [failedModal, setFailedModal] = useState(false);
+
+
+    const closeFailedModal = () => {
+        const html = document.querySelector('html');
+        failedModal && setFailedModal(false);
+        html.classList.remove('freeze');
+    }
+    const closeSuccessModal = () => {
+        const html = document.querySelector('html');
+        setSuccessModal(false);
+        html.classList.remove('freeze');
+    }
+
+    const showFailedModal = () => {
+        const html = document.querySelector('html');
+        html.classList.add('freeze');
+        !failedModal && setFailedModal(true);
+    }
+    const showSuccessModal = () => {
+        const html = document.querySelector('html');
+        html.classList.add('freeze');
+        !successModal && setSuccessModal(true);
+    }
+
     useEffect(() => {
-    },[mountedComponent]);
+        console.log(successModal);
+    }, [mountedComponent]);
 
     const onCursor = cursorType => {
         //check if  cursorType being passed is in cursorStyle in global context
@@ -85,10 +114,26 @@ const Layout = ({children}) => {
         <ThemeProvider theme={themeMode}>
             <GlobalStyle/>
             <CustomCursor/>
-                <main>{
-                    children.map((child, index) => React.cloneElement(child, {onCursor: onCursor, toggleMenu: toggleMenu, setToggleMenu: setToggleMenu, theme: theme, themeToggler: themeToggler, key: index}))
-                }
-                </main>
+            <main>{
+                children.map((child, index) => React.cloneElement(child, {
+                    onCursor: onCursor,
+                    toggleMenu: toggleMenu,
+                    setToggleMenu: setToggleMenu,
+                    theme: theme,
+                    themeToggler: themeToggler,
+                    showFailedModal: showFailedModal,
+                    showSuccessModal: showSuccessModal,
+                    key: index
+                }))
+            }
+            </main>
+            {
+                successModal && <SuccessModal close={closeSuccessModal}/>
+            }
+            {
+                failedModal && <FailedModal close={closeFailedModal}/>
+
+            }
         </ThemeProvider>
     )
 }

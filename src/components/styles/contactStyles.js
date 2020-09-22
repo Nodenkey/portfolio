@@ -84,7 +84,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Label = styled.label`
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `;
 
 export const FormButton = styled.button`
@@ -110,3 +110,11 @@ export const FormGrid = styled(Grid)`
   }
 `;
 
+
+export const ErrorParagraph = styled.small`
+  color: ${palette.radical};
+  text-align: left;
+  margin: 10px 0 0;
+  min-height: 1rem;
+  display: block;
+`;

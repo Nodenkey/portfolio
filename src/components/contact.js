@@ -4,7 +4,7 @@ import emailjs from 'emailjs-com';
 
 
 //Styled components
-import {FooterWrapper, FormButton, FormGrid, Input, Label, TextArea} from "./styles/contactStyles";
+import {ErrorParagraph, FooterWrapper, FormButton, FormGrid, Input, Label, TextArea} from "./styles/contactStyles";
 import {
     Container,
     Flex,
@@ -12,10 +12,10 @@ import {
     HeaderFive,
     HeaderTwo,
 } from "./styles/globalStyles";
+import {errorObject, validateEMail, validateForm, validateName} from "../utils/validation";
 
 
-
-const Contact = () => {
+const Contact = ({showSuccessModal, showFailedModal}) => {
     let hello = useRef(null);
     let form = useRef(null);
 
@@ -25,18 +25,33 @@ const Contact = () => {
             email: '',
             message: '',
         }
-    )
+    );
 
+    const [formError, setFormError] = useState({
+        nameError: '',
+        emailError: '',
+        messageError: '',
+    })
 
+    const setError = () => {
+        let error = errorObject.error;
+        let message = errorObject.message;
+        setFormError({...formError, [error]: message});
+    };
+
+    const handleNameChange = e => {
+        validateName(e.target, 'nameError');
+        setError();
+    }
 
     const handleMailChange = e => {
-        if (e.target.name === 'name') {
-            setMailDetails({...mailDetails, name: e.target.value});
-        } else if (e.target.name === 'email') {
-            setMailDetails({...mailDetails, email: e.target.value});
-        } else if (e.target.name === 'message') {
-            setMailDetails({...mailDetails, message: e.target.value});
-        }
+        validateEMail(e.target, 'emailError');
+        setError();
+    }
+
+    const handleMessageChange = e => {
+        validateName(e.target, 'messageError');
+        setError();
     }
 
 
@@ -54,29 +69,34 @@ const Contact = () => {
             x: -200
         });
         gsap.from(form.current, {
-                    scrollTrigger: {
-                        trigger: hello.current,
-                        start: 'top center',
-                    },
-                    duration: 1,
-                    opacity: 0,
-                    x: 200
-                });
+            scrollTrigger: {
+                trigger: hello.current,
+                start: 'top center',
+            },
+            duration: 1,
+            opacity: 0,
+            x: 200
+        });
 
     }, []);
 
     const handleSubmit = e => {
         e.preventDefault();
-        emailjs.sendForm('gmail', 'template_rj1z9eu', e.target, 'user_Z47eoUWQ39fcs9dvKU5m6')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
-        e.target.reset();
+        const isValid = validateForm(e);
+        setError();
+
+        if(isValid) {
+            emailjs.sendForm('gmail', 'template_rj1z9eu', e.target, 'user_Z47eoUWQ39fcs9dvKU5m6')
+                .then((result) => {
+                    console.log(result.text);
+                    showSuccessModal();
+                }, (error) => {
+                    console.log(error.text);
+                    showFailedModal();
+                });
+            e.target.reset();
+        }
     }
-
-
 
 
     return (
@@ -86,7 +106,8 @@ const Contact = () => {
                     <div ref={hello}>
                         <Flex>
                             <HeaderTwo>Say hello!</HeaderTwo>
-                            <HeaderTwo className='hand'><span role='img' aria-label='wave'>👋🏽</span></HeaderTwo></Flex>
+                            <HeaderTwo className='hand'><span role='img'
+                                                              aria-label='wave'>👋🏽</span></HeaderTwo></Flex>
                         <HeaderFive>Whether you want to discuss a new project or grab a cup of coffee, I’d love to talk
                             to
                             you. Feel free to reach out to me.</HeaderFive>
@@ -96,18 +117,21 @@ const Contact = () => {
                             <Label>
                                 Name <br/>
                                 <Input type='text' placeholder='Enter full name' name='name'
-                                       onChange={handleMailChange}/>
+                                       onChange={handleNameChange} onBlur={handleNameChange}/>
+                                <ErrorParagraph>{formError.nameError}</ErrorParagraph>
                             </Label>
                             <Label>
                                 Email<br/>
                                 <Input type='email' placeholder='Enter your email' name='email'
-                                       onChange={handleMailChange}/>
+                                       onChange={handleMailChange} onBlur={handleMailChange}/>
+                                <ErrorParagraph>{formError.emailError}</ErrorParagraph>
                             </Label>
                         </FormGrid>
                         <Label>
                             Message
                             <TextArea rows="6" cols="50" placeholder='How can I help you?' name='message'
-                                      onChange={handleMailChange}/>
+                                      onChange={handleMessageChange} onBlur={handleMessageChange}/>
+                            <ErrorParagraph>{formError.messageError}</ErrorParagraph>
                         </Label>
                         <FormButton>Mail me</FormButton>
                     </form>

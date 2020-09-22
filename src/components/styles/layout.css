@@ -607,4 +607,10 @@ pre tt:after {
   }
 }
 
+.freeze{
+  overflow: hidden !important;
+  height: 100vh !important;
+  width: 100vw;
+}
+
 

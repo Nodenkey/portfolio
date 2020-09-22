@@ -22,9 +22,6 @@ const globalReducer = (state, action) => {
 
 //Create provider to provide states to whole app
 export const GlobalProvider = ({children}) => {
-    console.log(window.localStorage.getItem('theme'));
-    console.log(!!window.localStorage.getItem('theme'));
-    console.log(typeof window.localStorage.getItem('theme'));
     const [state, dispatch] = useReducer(globalReducer, {
         cursorType: false,
         cursorStyles: ["pointer", "hovered"],

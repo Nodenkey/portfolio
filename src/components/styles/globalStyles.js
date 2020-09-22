@@ -165,7 +165,7 @@ export const Cursor = styled.div`
   transition-property: height, width, border;
   will-change: height, width, border;
   pointer-events: none;
-  z-index: 99999999999999;
+  z-index: 9999999999999999999999999999999999999;
   &.hovered {
   background: transparent;
   border: 1.5px dashed ${palette.radical};
