@@ -16,13 +16,12 @@ import {useGlobalDispatchContext, useGlobalStateContext} from "../context/global
 import {useDarkMode} from "../custom-hooks/custom-hook";
 
 
-const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
+const Header = ({onCursor, toggleMenu, setToggleMenu, theme}) => {
     const [themeToggler] = useDarkMode();
     const headerRef = useRef(null);
     const menuUp = useRef(null);
     const menuDown = useRef(null);
 
-    const {currentTheme} = useGlobalStateContext();
 
     useEffect(() => {
         const tlOne = gsap.timeline({duration: .5});
@@ -53,7 +52,7 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
 
 
     useEffect(() => {
-        if(currentTheme === 'dark'){
+        if(theme === 'dark'){
             if (window.pageYOffset > "150") {
                 headerRef.current.style.backgroundColor = 'black';
             }else{
@@ -68,7 +67,7 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
         }
 
         window.onscroll = () => {
-            if (currentTheme === 'dark') {
+            if (theme === 'dark') {
                 if (window.pageYOffset > "150") {
                     headerRef.current.style.backgroundColor = "black";
                 } else {
@@ -82,7 +81,7 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
                 }
             }
         }
-    }, [currentTheme]);
+    }, [theme]);
 
 
     const toggleOverlay = () => {
@@ -120,7 +119,7 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
                         onMouseLeave={onCursor}
                     >
                         {
-                            currentTheme === 'default' ?
+                            theme === 'default' ?
                                 <Sun/> : <FontAwesomeIcon icon={faMoon}/>
                         }
                     </ThemeSwitch>

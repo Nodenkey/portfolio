@@ -86,7 +86,7 @@ const Layout = ({children}) => {
             <GlobalStyle/>
             <CustomCursor/>
                 <main>{
-                    children.map((child, index) => React.cloneElement(child, {onCursor: onCursor, toggleMenu: toggleMenu, setToggleMenu: setToggleMenu, key: index}))
+                    children.map((child, index) => React.cloneElement(child, {onCursor: onCursor, toggleMenu: toggleMenu, setToggleMenu: setToggleMenu, theme: theme, key: index}))
                 }
                 </main>
         </ThemeProvider>

@@ -44,7 +44,6 @@ export const TextSection = styled.div`
 `;
 
 export const VisitWebsite = styled.div`
-  margin-top: 50px;
   display: inline-flex;
   color: ${palette.radical};
   align-items: center;
@@ -58,6 +57,9 @@ export const VisitWebsite = styled.div`
   }
   &:hover svg {
   transform: translateX(20px) scale(1.2);
+  }
+  @media only screen and (min-width: 600px){
+      margin-top: 50px;
   }
 `;
 
