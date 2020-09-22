@@ -14,7 +14,7 @@ import {graphql, Link, useStaticQuery} from "gatsby";
 import {useGlobalStateContext} from "../context/globalContext";
 
 
-const Banner = ({onCursor}) => {
+const Banner = ({onCursor, theme}) => {
     let bannerText = useRef(null);
 
     useEffect(() => {
@@ -62,7 +62,7 @@ const Banner = ({onCursor}) => {
             </BannerText>
             <div id="landing">
                 {
-                    currentTheme === 'dark' || undefined ? <Img fluid={images.dark.childImageSharp.fluid} alt='nii'/> :
+                    theme === 'default' || undefined ? <Img fluid={images.dark.childImageSharp.fluid} alt='nii'/> :
                         <Img fluid={images.light.childImageSharp.fluid} alt='nii'/>
                 }
             </div>

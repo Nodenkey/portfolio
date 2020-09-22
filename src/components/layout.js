@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
 
 
 const Layout = ({children}) => {
-    const [theme, mountedComponent] = useDarkMode();
+    const [theme, themeToggler, mountedComponent] = useDarkMode();
     const themeMode = theme === 'default' ? darkTheme : lightTheme;
     const {cursorStyles} = useGlobalStateContext();
     const dispatch = useGlobalDispatchContext();
@@ -86,7 +86,7 @@ const Layout = ({children}) => {
             <GlobalStyle/>
             <CustomCursor/>
                 <main>{
-                    children.map((child, index) => React.cloneElement(child, {onCursor: onCursor, toggleMenu: toggleMenu, setToggleMenu: setToggleMenu, theme: theme, key: index}))
+                    children.map((child, index) => React.cloneElement(child, {onCursor: onCursor, toggleMenu: toggleMenu, setToggleMenu: setToggleMenu, theme: theme, themeToggler: themeToggler, key: index}))
                 }
                 </main>
         </ThemeProvider>

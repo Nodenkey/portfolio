@@ -16,8 +16,7 @@ import {useGlobalDispatchContext, useGlobalStateContext} from "../context/global
 import {useDarkMode} from "../custom-hooks/custom-hook";
 
 
-const Header = ({onCursor, toggleMenu, setToggleMenu, theme}) => {
-    const [themeToggler] = useDarkMode();
+const Header = ({onCursor, toggleMenu, setToggleMenu, theme, themeToggler}) => {
     const headerRef = useRef(null);
     const menuUp = useRef(null);
     const menuDown = useRef(null);
@@ -52,7 +51,7 @@ const Header = ({onCursor, toggleMenu, setToggleMenu, theme}) => {
 
 
     useEffect(() => {
-        if(theme === 'dark'){
+        if(theme === 'default'){
             if (window.pageYOffset > "150") {
                 headerRef.current.style.backgroundColor = 'black';
             }else{
@@ -67,7 +66,7 @@ const Header = ({onCursor, toggleMenu, setToggleMenu, theme}) => {
         }
 
         window.onscroll = () => {
-            if (theme === 'dark') {
+            if (theme === 'default') {
                 if (window.pageYOffset > "150") {
                     headerRef.current.style.backgroundColor = "black";
                 } else {
@@ -114,7 +113,7 @@ const Header = ({onCursor, toggleMenu, setToggleMenu, theme}) => {
                         </Link>
                     </Logo>
                     <ThemeSwitch
-                        onClick={() => themeToggler}
+                        onClick={() => themeToggler()}
                         onMouseEnter={() => onCursor('hovered')}
                         onMouseLeave={onCursor}
                     >
