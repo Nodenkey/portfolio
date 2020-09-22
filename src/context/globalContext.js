@@ -3,17 +3,12 @@ import {window} from "browser-monads";
 
 
 //Define the contexts
-const GlobalStateContext = createContext('dark');
+const GlobalStateContext = createContext('');
 const GlobalDispatchContext = createContext(undefined);
 
 //Reducer
 const globalReducer = (state, action) => {
     switch (action.type){
-        case 'TOGGLE_THEME': {
-            return {
-                ...state, currentTheme: action.theme
-            }
-        }
         case 'TOGGLE_CURSOR': {
             return {
                 ...state, cursorType: action.cursor
@@ -27,20 +22,20 @@ const globalReducer = (state, action) => {
 
 //Create provider to provide states to whole app
 export const GlobalProvider = ({children}) => {
-
+    console.log(window.localStorage.getItem('theme'));
+    console.log(!!window.localStorage.getItem('theme'));
+    console.log(typeof window.localStorage.getItem('theme'));
     const [state, dispatch] = useReducer(globalReducer, {
-        currentTheme: typeof window !== undefined && window.localStorage.getItem('theme') == null ?
-            'dark': window.localStorage.getItem('theme'),
         cursorType: false,
         cursorStyles: ["pointer", "hovered"],
         menu: false,
     })
     return (
-        <GlobalDispatchContext.Provider value={dispatch}>
             <GlobalStateContext.Provider value={state}>
+                <GlobalDispatchContext.Provider value={dispatch}>
                 {children}
+                </GlobalDispatchContext.Provider>
             </GlobalStateContext.Provider>
-        </GlobalDispatchContext.Provider>
     )
 }
 

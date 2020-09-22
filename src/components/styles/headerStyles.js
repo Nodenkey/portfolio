@@ -25,7 +25,6 @@ export const Menu = styled.button`
   width: 30px;
   height: 2px;
   display: block;
-  ${props => console.log(props.theme.primaryTextColor)};
   background-color: ${props => props.theme.primaryTextColor};
   margin: 10px 0;
   }

@@ -13,15 +13,16 @@ import {NiiLogo, Sun} from "./svg";
 
 //Context
 import {useGlobalDispatchContext, useGlobalStateContext} from "../context/globalContext";
+import {useDarkMode} from "../custom-hooks/custom-hook";
 
 
 const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
+    const [themeToggler] = useDarkMode();
     const headerRef = useRef(null);
     const menuUp = useRef(null);
     const menuDown = useRef(null);
 
     const {currentTheme} = useGlobalStateContext();
-    const dispatch = useGlobalDispatchContext();
 
     useEffect(() => {
         const tlOne = gsap.timeline({duration: .5});
@@ -52,8 +53,6 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
 
 
     useEffect(() => {
-        typeof window !== undefined && window.localStorage.setItem('theme', currentTheme);
-
         if(currentTheme === 'dark'){
             if (window.pageYOffset > "150") {
                 headerRef.current.style.backgroundColor = 'black';
@@ -85,13 +84,6 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
         }
     }, [currentTheme]);
 
-    const toggleTheme = () => {
-        if (currentTheme === 'dark') {
-            dispatch({type: 'TOGGLE_THEME', theme: 'light'})
-        } else {
-            dispatch({type: 'TOGGLE_THEME', theme: 'dark'})
-        }
-    }
 
     const toggleOverlay = () => {
         setToggleMenu(!toggleMenu);
@@ -123,12 +115,12 @@ const Header = ({onCursor, toggleMenu, setToggleMenu}) => {
                         </Link>
                     </Logo>
                     <ThemeSwitch
-                        onClick={toggleTheme}
+                        onClick={() => themeToggler}
                         onMouseEnter={() => onCursor('hovered')}
                         onMouseLeave={onCursor}
                     >
                         {
-                            currentTheme === 'dark' ?
+                            currentTheme === 'default' ?
                                 <Sun/> : <FontAwesomeIcon icon={faMoon}/>
                         }
                     </ThemeSwitch>

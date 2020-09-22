@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 import PropTypes from "prop-types"
 import {ThemeProvider} from "styled-components";
-import {document} from 'browser-monads';
+import {window, document} from 'browser-monads';
 
 
 //styled components
@@ -9,13 +9,12 @@ import {createGlobalStyle} from "styled-components";
 import {normalize} from "styled-normalize";
 import {darkTheme, lightTheme, palette} from "../utils";
 import "../components/styles/layout.css";
-import Header from "./header";
 import CustomCursor from "./customCursor";
+import {useDarkMode} from "../custom-hooks/custom-hook";
+
 
 //context
 import {useGlobalStateContext, useGlobalDispatchContext} from "../context/globalContext";
-import Footer from "./footer";
-import MenuOverlay from "./menuOverlay";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -38,7 +37,6 @@ const GlobalStyle = createGlobalStyle`
  background-color: ${props => props.theme ? props.theme.background : 'black'};
  color: ${props => props.theme ? props.theme.primaryTextColor : 'white'};
  overflow-x: hidden;
- }
  input:-webkit-autofill,
  input:-webkit-autofill:hover, 
  input:-webkit-autofill:focus, 
@@ -48,18 +46,20 @@ const GlobalStyle = createGlobalStyle`
  input:-webkit-autofill {
     -webkit-text-fill-color: ${props => props.theme.primaryTextColor} !important;
 }
+}
   
   
 `;
 
 
 const Layout = ({children}) => {
-    const {currentTheme, cursorStyles} = useGlobalStateContext();
+    const [theme, mountedComponent] = useDarkMode();
+    const themeMode = theme === 'default' ? darkTheme : lightTheme;
+    const {cursorStyles} = useGlobalStateContext();
     const dispatch = useGlobalDispatchContext();
 
     useEffect(() => {
-        typeof window !== undefined && window.localStorage.setItem('theme', currentTheme);
-    });
+    },[mountedComponent]);
 
     const onCursor = cursorType => {
         //check if  cursorType being passed is in cursorStyle in global context
@@ -82,7 +82,7 @@ const Layout = ({children}) => {
 
 
     return (
-        <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
+        <ThemeProvider theme={themeMode}>
             <GlobalStyle/>
             <CustomCursor/>
                 <main>{
