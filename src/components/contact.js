@@ -19,13 +19,6 @@ const Contact = ({showSuccessModal, showFailedModal}) => {
     let hello = useRef(null);
     let form = useRef(null);
 
-    const [mailDetails, setMailDetails] = useState(
-        {
-            name: '',
-            email: '',
-            message: '',
-        }
-    );
 
     const [formError, setFormError] = useState({
         nameError: '',

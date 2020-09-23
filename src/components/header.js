@@ -11,9 +11,6 @@ import {Container, Flex} from "./styles/globalStyles";
 import {HeaderContainer, Logo, Menu, ThemeSwitch} from "./styles/headerStyles";
 import {NiiLogo, Sun} from "./svg";
 
-//Context
-import {useGlobalDispatchContext, useGlobalStateContext} from "../context/globalContext";
-import {useDarkMode} from "../custom-hooks/custom-hook";
 
 
 const Header = ({onCursor, toggleMenu, setToggleMenu, theme, themeToggler}) => {

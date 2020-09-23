@@ -10,8 +10,6 @@ import {ArrowContainer, BannerText, BannerWrapper} from "./styles/bannerStyles";
 import {Flex, HeaderFive, HeaderFour, HeaderOne, Redden} from "./styles/globalStyles";
 import {graphql, Link, useStaticQuery} from "gatsby";
 
-//Context
-import {useGlobalStateContext} from "../context/globalContext";
 
 
 const Banner = ({onCursor, theme}) => {
@@ -24,7 +22,6 @@ const Banner = ({onCursor, theme}) => {
         .to(image, {duration: 2, scale: 1, opacity: 1}, "-=.8")
     })
 
-    const {currentTheme} = useGlobalStateContext();
 
     const images = useStaticQuery(graphql`
     query {

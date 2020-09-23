@@ -1,5 +1,4 @@
 import React, {createContext, useReducer, useContext} from "react";
-import {window} from "browser-monads";
 
 
 //Define the contexts

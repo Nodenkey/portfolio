@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 import PropTypes from "prop-types"
 import {ThemeProvider} from "styled-components";
-import {window, document} from 'browser-monads';
+import {document} from 'browser-monads';
 
 
 //styled components
@@ -87,7 +87,6 @@ const Layout = ({children}) => {
     }
 
     useEffect(() => {
-        console.log(successModal);
     }, [mountedComponent]);
 
     const onCursor = cursorType => {

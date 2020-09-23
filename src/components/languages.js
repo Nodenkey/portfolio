@@ -5,7 +5,7 @@ import {gsap, ScrollTrigger} from "gsap/all";
 //Styled component
 import {Css, Figma, Firebase, Flask, GatsbyIcon, Html, Js, Photoshop, Python, ReactIcon, Redux, Webstorm} from "./svg";
 import {LanguageContainer, LanguageWrapper} from "./styles/languageStyles";
-import {Grid, HeaderThree, Paragraph} from "./styles/globalStyles";
+import {HeaderThree, Paragraph} from "./styles/globalStyles";
 
 const Languages = () => {
 
