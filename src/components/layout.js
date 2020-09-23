@@ -8,7 +8,6 @@ import {document} from 'browser-monads';
 import {darkTheme, lightTheme} from "../utils";
 import {GlobalStyle} from "../styles/Global";
 import "../styles/layout.css";
-import CustomCursor from "./customCursor";
 import {useDarkMode} from "../custom-hooks/custom-hook";
 
 
@@ -83,7 +82,6 @@ const Layout = ({children}) => {
             <MenuOverlay onCursor={onCursor} setToggleMenu={setToggleMenu} toggleMenu={toggleMenu}/>
             <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} onCursor={onCursor} theme={theme}
                     themeToggler={themeToggler}/>
-            <CustomCursor/>
             <main>{
                 children.map((child, index) => React.cloneElement(child, {
                     onCursor: onCursor,

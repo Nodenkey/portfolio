@@ -12,7 +12,6 @@ import {ErrorImage} from "../components/svg";
 import {gsap} from "gsap/all";
 import {HeaderThree, Paragraph} from "../styles/globalStyles";
 import {GlobalStyle} from "../styles/Global";
-import CustomCursor from "../components/customCursor";
 
 const NotFoundPage = () => {
 
@@ -38,7 +37,6 @@ const NotFoundPage = () => {
     return (
         <>
             <GlobalStyle/>
-            <CustomCursor/>
             <SEO title="404: Not found"/>
             <ErrorWrapper>
                 <ErrorText>
