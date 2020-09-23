@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {palette} from "../../utils";
+import {palette} from "../utils";
 import {motion} from "framer-motion";
 import {Flex} from "./globalStyles";
 

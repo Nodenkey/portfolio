@@ -1,7 +1,7 @@
 import React from 'react';
-import {ModalContainer, ModalWrapper} from "./styles/modalStyles";
+import {ModalContainer, ModalWrapper} from "../styles/modalStyles";
 import {CloseSvg} from "./svg";
-import {HeaderFive, HeaderFour} from "./styles/globalStyles";
+import {HeaderFive, HeaderFour} from "../styles/globalStyles";
 
 const SuccessModal = ({close}) => {
     return (

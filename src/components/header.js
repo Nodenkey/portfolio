@@ -7,8 +7,8 @@ import {gsap} from "gsap/all";
 import {window} from "browser-monads";
 
 //Styled components
-import {Container, Flex} from "./styles/globalStyles";
-import {HeaderContainer, Logo, Menu, ThemeSwitch} from "./styles/headerStyles";
+import {Container, Flex} from "../styles/globalStyles";
+import {HeaderContainer, Logo, Menu, ThemeSwitch} from "../styles/headerStyles";
 import {NiiLogo, Sun} from "./svg";
 
 

@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
-import {Divider, Flex, Paragraph} from "./styles/globalStyles";
+import {Divider, Flex, Paragraph} from "../styles/globalStyles";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookF, faGithub, faInstagram, faLinkedinIn, faTwitter} from "@fortawesome/free-brands-svg-icons";
-import {FooterWrapper} from "./styles/contactStyles";
+import {FooterWrapper} from "../styles/contactStyles";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {gsap} from "gsap";
 

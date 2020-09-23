@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
-import {palette} from "../../utils";
-import {typeScale} from "../../utils/typeScale";
+import {palette} from "../utils";
+import {typeScale} from "../utils/typeScale";
 
 
 //Divs & Containers

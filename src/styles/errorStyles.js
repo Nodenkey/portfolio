@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {palette} from "../../utils";
+import {palette} from "../utils";
 
 export const ErrorWrapper = styled.div`
 width: 100vw;

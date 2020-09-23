@@ -1,17 +1,18 @@
 import React, {useEffect} from "react"
 import {Link} from "gatsby";
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import {
     ErrorButton,
     ErrorImageContainer,
     ErrorText,
     ErrorWrapper
-} from "../components/styles/errorStyles";
+} from "../styles/errorStyles";
 import {ErrorImage} from "../components/svg";
 import {gsap} from "gsap/all";
-import {HeaderThree, Paragraph} from "../components/styles/globalStyles";
+import {HeaderThree, Paragraph} from "../styles/globalStyles";
+import {GlobalStyle} from "../styles/Global";
+import CustomCursor from "../components/customCursor";
 
 const NotFoundPage = () => {
 
@@ -35,7 +36,9 @@ const NotFoundPage = () => {
         });
     });
     return (
-        <Layout>
+        <>
+            <GlobalStyle/>
+            <CustomCursor/>
             <SEO title="404: Not found"/>
             <ErrorWrapper>
                 <ErrorText>
@@ -53,7 +56,7 @@ const NotFoundPage = () => {
                     <ErrorImage/>
                 </ErrorImageContainer>
             </ErrorWrapper>
-        </Layout>
+        </>
     )
 }
 

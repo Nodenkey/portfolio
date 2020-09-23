@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {palette} from "../../utils";
+import {palette} from "../utils";
 import {Container, Flex} from "./globalStyles";
 
 export const BannerWrapper = styled(Flex)`

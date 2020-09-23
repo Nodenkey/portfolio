@@ -6,14 +6,14 @@ import {faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import {gsap, ScrollTrigger, Power3} from "gsap/all";
 
 //Styled components
-import {Container, HeaderFour, HeaderThree, Paragraph} from "./styles/globalStyles";
+import {Container, HeaderFour, HeaderThree, Paragraph} from "../styles/globalStyles";
 import {
     AllProjectContainer,
     ProjectContainer, ProjectImage,
     ProjectWrapper,
     TextSection,
     VisitWebsite
-} from "./styles/projectStyles";
+} from "../styles/projectStyles";
 import {projects} from "../utils/projectFiles";
 
 

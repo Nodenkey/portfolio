@@ -5,8 +5,8 @@ import Img from "gatsby-image";
 import {gsap, ScrollTrigger} from "gsap/all";
 
 //Styled components
-import {Container, Grid, HeaderFive, HeaderThree, ImageContainer, Paragraph, Redden} from "./styles/globalStyles";
-import {AboutContainer} from "./styles/aboutStyles";
+import {Container, Grid, HeaderFive, HeaderThree, ImageContainer, Paragraph, Redden} from "../styles/globalStyles";
+import {AboutContainer} from "../styles/aboutStyles";
 
 
 const About = ({onCursor}) => {

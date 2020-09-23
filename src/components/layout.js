@@ -5,53 +5,20 @@ import {document} from 'browser-monads';
 
 
 //styled components
-import {createGlobalStyle} from "styled-components";
-import {normalize} from "styled-normalize";
-import {darkTheme, lightTheme, palette} from "../utils";
-import "../components/styles/layout.css";
+import {darkTheme, lightTheme} from "../utils";
+import {GlobalStyle} from "../styles/Global";
+import "../styles/layout.css";
 import CustomCursor from "./customCursor";
 import {useDarkMode} from "../custom-hooks/custom-hook";
 
 
-//context
+//components
 import {useGlobalStateContext, useGlobalDispatchContext} from "../context/globalContext";
 import SuccessModal from "./successModal";
 import FailedModal from "./failedModal";
-
-
-const GlobalStyle = createGlobalStyle`
-  ${normalize}
-  *{
-  text-decoration: none;
-  cursor: none !important;
-  } 
-  a{
-    color: ${palette.radical};
-  }
- html {
-  box-sizing: border-box;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
- }
- body {
- font-family: Numans, sans-serif;
- background-color: ${props => props.theme ? props.theme.background : 'black'};
- color: ${props => props.theme ? props.theme.primaryTextColor : 'white'};
- overflow-x: hidden;
- input:-webkit-autofill,
- input:-webkit-autofill:hover, 
- input:-webkit-autofill:focus, 
- input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px ${props => props.theme.background} inset !important;
- }
- input:-webkit-autofill {
-    -webkit-text-fill-color: ${props => props.theme.primaryTextColor} !important;
-}
-}
-  
-  
-`;
+import MenuOverlay from "./menuOverlay";
+import Header from "./header";
+import Footer from "./footer";
 
 
 const Layout = ({children}) => {
@@ -86,6 +53,7 @@ const Layout = ({children}) => {
         !successModal && setSuccessModal(true);
     }
 
+    //Remount component after mounting to apply theme
     useEffect(() => {
     }, [mountedComponent]);
 
@@ -112,6 +80,9 @@ const Layout = ({children}) => {
     return (
         <ThemeProvider theme={themeMode}>
             <GlobalStyle/>
+            <MenuOverlay onCursor={onCursor} setToggleMenu={setToggleMenu} toggleMenu={toggleMenu}/>
+            <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} onCursor={onCursor} theme={theme}
+                    themeToggler={themeToggler}/>
             <CustomCursor/>
             <main>{
                 children.map((child, index) => React.cloneElement(child, {
@@ -133,6 +104,7 @@ const Layout = ({children}) => {
                 failedModal && <FailedModal close={closeFailedModal}/>
 
             }
+            <Footer/>
         </ThemeProvider>
     )
 }

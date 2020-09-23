@@ -6,8 +6,8 @@ import {gsap} from "gsap/all";
 
 
 //Styled components
-import {ArrowContainer, BannerText, BannerWrapper} from "./styles/bannerStyles";
-import {Flex, HeaderFive, HeaderFour, HeaderOne, Redden} from "./styles/globalStyles";
+import {ArrowContainer, BannerText, BannerWrapper} from "../styles/bannerStyles";
+import {Flex, HeaderFive, HeaderFour, HeaderOne, Redden} from "../styles/globalStyles";
 import {graphql, Link, useStaticQuery} from "gatsby";
 
 

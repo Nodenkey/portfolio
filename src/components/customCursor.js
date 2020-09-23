@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Cursor} from "./styles/globalStyles";
+import {Cursor} from "../styles/globalStyles";
 
 //Context
 import {useGlobalStateContext} from "../context/globalContext";

@@ -4,14 +4,14 @@ import emailjs from 'emailjs-com';
 
 
 //Styled components
-import {ErrorParagraph, FooterWrapper, FormButton, FormGrid, Input, Label, TextArea} from "./styles/contactStyles";
+import {ErrorParagraph, FooterWrapper, FormButton, FormGrid, Input, Label, TextArea} from "../styles/contactStyles";
 import {
     Container,
     Flex,
     Grid,
     HeaderFive,
     HeaderTwo,
-} from "./styles/globalStyles";
+} from "../styles/globalStyles";
 import {errorObject, validateEMail, validateForm, validateName} from "../utils/validation";
 
 

@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {Link} from "gatsby";
-import {OverlayWrapper, SocialContainer} from "./styles/menuOverlayStyles";
-import {Flex, HeaderFive, HeaderThree} from "./styles/globalStyles";
+import {OverlayWrapper, SocialContainer} from "../styles/menuOverlayStyles";
+import {Flex, HeaderFive, HeaderThree} from "../styles/globalStyles";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookF, faGithub, faInstagram, faLinkedinIn, faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {gsap, Power4} from "gsap/all";
