@@ -61,7 +61,7 @@ const About = ({onCursor}) => {
                     <HeaderFive><Redden>"People ignore design that ignores people"<br/>
                         ---Frank Chimero</Redden></HeaderFive>
                     <Paragraph>
-                        Being very inquisitive and a person who liked to ask so many questions as a child, I have always
+                        Being a very inquisitive and a person who liked to ask so many questions as a child, I have always
                         wanted to figure out how things worked and help make them better. Learning web design has always
                         been a very exciting journey for me; enabling me put myself in users' shoes and make sure those
                         potential users, visit a website that works and leave the websites with a great experience.
