@@ -71,7 +71,7 @@ const About = ({onCursor}) => {
                         way
                         of feeling alive. And I make it my topmost priority to learn more about it each and every day.
                         You can always reach out to me <Link to='/#contact' onMouseEnter={() => onCursor('hovered')}
-                                                             onMouseLeave={onCursor}>here.</Link></Paragraph>
+                                                             onMouseLeave={onCursor}>here!</Link></Paragraph>
                 </Container>
             </Grid>
         </AboutContainer>
