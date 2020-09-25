@@ -60,7 +60,7 @@ const Banner = ({onCursor, theme}) => {
             <div id="landing">
                 {
                     theme === 'default' || undefined ? <Img fluid={images.dark.childImageSharp.fluid} alt='nii'/> :
-                        <Img fluid={images.light.childImageSharp.fluid} alt='nii'/>
+                        <Img fluid={images.light.childImageSharp.fluid} alt='nii odenkey'/>
                 }
             </div>
         </BannerWrapper>
