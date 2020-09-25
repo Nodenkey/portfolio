@@ -27,7 +27,7 @@ function SEO({ description, lang, keywords, image, meta, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const metaKeywords = ["nii portfolio", "nii odenkey", "nii odenkey website", "nii odenkey portfolio"];
+  const metaKeywords = "nii portfolio", "nii odenkey", "nii odenkey website", "nii odenkey portfolio";
 
   return (
     <Helmet
@@ -73,10 +73,11 @@ function SEO({ description, lang, keywords, image, meta, title }) {
           name: `author`,
           content: site.siteMetadata.author,
         },
-      ].concat({
-        name: `keywords`,
-        content: metaKeywords.join(", ")
-      })}
+        {
+          name: `keywords`,
+          content: metaKeywords,
+        },
+      ].concat(meta)}
     />
   )
 }
