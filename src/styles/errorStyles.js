@@ -11,6 +11,7 @@ flex-direction: column;
 align-items: center;
 box-sizing: border-box;
 
+
 @media only screen and (min-width: 600px){
 flex-direction: row;
 height: 100%;
