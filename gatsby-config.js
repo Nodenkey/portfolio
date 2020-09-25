@@ -2,6 +2,9 @@ module.exports = {
   siteMetadata: {
     title: `Frontend Web Developer`,
     description: `Nii Odenkey is a frontend web developer based in Accra Ghana.`,
+    url: "https://niiodenkey.me",
+    image: "src/images/logo2.png",
+    twitterUsername: "@n_odenkey",
     author: `Nii Odenkey`,
   },
   plugins: [
@@ -22,8 +25,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#000000`,
+        theme_color: `#FFFFFF`,
         display: `minimal-ui`,
         icon: `src/images/logo2.png`, // This path is relative to the root of the site.
       },
