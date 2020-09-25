@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {palette} from "../utils";
 
 export const ErrorWrapper = styled.div`
-width: 100vw;
+width: 100%;
 padding: 100px 5%;
 text-align: left;
 background-color: black;
@@ -11,7 +11,7 @@ flex-direction: column;
 align-items: center;
 @media only screen and (min-width: 600px){
 flex-direction: row;
-height: 100vh;
+height: 100%;
 }
 `;
 export const ErrorText = styled.div`
