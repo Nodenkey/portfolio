@@ -102,7 +102,7 @@ const Layout = ({children}) => {
                 failedModal && <FailedModal close={closeFailedModal}/>
 
             }
-            <Footer/>
+            <Footer onCursor={onCursor}/>
         </ThemeProvider>
     )
 }
