@@ -31,6 +31,9 @@ export const GlobalStyle = createGlobalStyle`
  input:-webkit-autofill {
     -webkit-text-fill-color: ${props => props.theme && props.theme.primaryTextColor} !important;
 }
-}  
+}
+  *, :after, :before {
+    box-sizing: border-box;
+  }  
 `;
 
