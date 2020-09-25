@@ -1,5 +1,6 @@
 import React, {useEffect} from "react"
 import {Link} from "gatsby";
+import "../styles/layout.css";
 
 import SEO from "../components/seo"
 import {
