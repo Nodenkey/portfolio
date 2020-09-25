@@ -9,6 +9,8 @@ background-color: black;
 display: flex;
 flex-direction: column;
 align-items: center;
+box-sizing: border-box;
+
 
 @media only screen and (min-width: 600px){
 flex-direction: row;
@@ -18,6 +20,7 @@ height: 100%;
 export const ErrorText = styled.div`
 width: 100%;
 margin-bottom: 50px;
+box-sizing: border-box;
 @media only screen and (min-width: 600px){
 width: 50%;
 }
@@ -35,9 +38,10 @@ export const ErrorSubText = styled.h2`
 
 `;
 export const ErrorImageContainer = styled.div`
-width: 100%;
-@media only screen and (min-width: 600px){
-width: 50%;
+    width: 100%;
+    box-sizing: border-box;
+    @media only screen and (min-width: 600px){
+    width: 50%;
 }
 `;
 
