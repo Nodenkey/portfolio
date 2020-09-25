@@ -73,10 +73,11 @@ function SEO({ description, lang, keywords, image, meta, title }) {
           name: `author`,
           content: site.siteMetadata.author,
         },
-      ].concat({
-        name: `keywords`,
-        content: metaKeywords.join(", ")
-      })}
+        {
+          name: `keywords`,
+          content: metaKeywords.join(", "),
+        },
+      ].concat(meta)}
     />
   )
 }
