@@ -49,11 +49,18 @@ export const VisitWebsite = styled.div`
   align-items: center;
   h4{
     margin-bottom: 0;
+    font-size: 1.4rem;
+    @media only screen and (min-width: 600px){
+    font-size: 2rem;
+    }
   }
   svg{
-    font-size: 3rem;
+    font-size: 1.4rem;
     margin-left: 10px;
     transition: 500ms ease-in-out;
+    @media only screen and (min-width: 600px){
+      font-size: 2rem;
+    }
   }
   &:hover svg {
   transform: translateX(20px) scale(1.2);
