@@ -6,6 +6,7 @@ import About from "../components/about";
 import Projects from "../components/projects";
 import Languages from "../components/languages";
 import Contact from "../components/contact";
+import BlogSection from "../components/blogSection";
 
 const IndexPage = () => {
 
@@ -16,6 +17,7 @@ const IndexPage = () => {
                     <About/>
                     <Projects/>
                     <Languages/>
+                    <BlogSection/>
                     <Contact/>
             </Layout>
         )

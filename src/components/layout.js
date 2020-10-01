@@ -77,33 +77,35 @@ const Layout = ({children}) => {
 
 
     return (
-        <ThemeProvider theme={themeMode}>
-            <GlobalStyle/>
-            <MenuOverlay onCursor={onCursor} setToggleMenu={setToggleMenu} toggleMenu={toggleMenu}/>
-            <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} onCursor={onCursor} theme={theme}
-                    themeToggler={themeToggler}/>
-            <main>{
-                children.map((child, index) => React.cloneElement(child, {
-                    onCursor: onCursor,
-                    toggleMenu: toggleMenu,
-                    setToggleMenu: setToggleMenu,
-                    theme: theme,
-                    themeToggler: themeToggler,
-                    showFailedModal: showFailedModal,
-                    showSuccessModal: showSuccessModal,
-                    key: index
-                }))
-            }
-            </main>
-            {
-                successModal && <SuccessModal close={closeSuccessModal}/>
-            }
-            {
-                failedModal && <FailedModal close={closeFailedModal}/>
+        <div className="layout-wrapper">
+            <ThemeProvider theme={themeMode}>
+                <GlobalStyle/>
+                <MenuOverlay onCursor={onCursor} setToggleMenu={setToggleMenu} toggleMenu={toggleMenu}/>
+                <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} onCursor={onCursor} theme={theme}
+                        themeToggler={themeToggler}/>
+                <main className="layout-main">{
+                    React.Children.map(children, (child, index) => child && React.cloneElement(child, {
+                        onCursor: onCursor,
+                        toggleMenu: toggleMenu,
+                        setToggleMenu: setToggleMenu,
+                        theme: theme,
+                        themeToggler: themeToggler,
+                        showFailedModal: showFailedModal,
+                        showSuccessModal: showSuccessModal,
+                        key: index
+                    }))
+                }
+                </main>
+                {
+                    successModal && <SuccessModal close={closeSuccessModal}/>
+                }
+                {
+                    failedModal && <FailedModal close={closeFailedModal}/>
 
-            }
-            <Footer onCursor={onCursor}/>
-        </ThemeProvider>
+                }
+                <Footer onCursor={onCursor}/>
+            </ThemeProvider>
+        </div>
     )
 }
 

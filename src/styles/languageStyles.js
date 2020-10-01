@@ -53,6 +53,10 @@ export const LanguageWrapper = styled(Container)`
 export const LanguageContainer = styled(Grid)`
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 100px 50px;
+  >*{
+    transform: translateY(50px);
+    opacity: 0;
+  }
   @media only screen and (min-width: 600px){
       grid-template-columns: repeat(4, 1fr);
       grid-gap: 100px;

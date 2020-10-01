@@ -38,7 +38,7 @@ const Projects = ({onCursor}) => {
 
     const projectImages = useStaticQuery(graphql`
     query {
-        wevops: file(relativePath: {eq: "wevops.png"}) {
+        wevops: file(relativePath: {eq: "images/wevops.png"}) {
             id
             childImageSharp {
             fluid(maxWidth: 5000) {
@@ -46,7 +46,7 @@ const Projects = ({onCursor}) => {
         }
     }
   }
-       edanra: file(relativePath: {eq: "edanra.png"}) {
+       edanra: file(relativePath: {eq: "images/edanra.png"}) {
                 id
                 childImageSharp {
                 fluid(maxWidth: 5000) {
@@ -54,7 +54,7 @@ const Projects = ({onCursor}) => {
           }
         }
       }            
-      qube: file(relativePath: {eq: "qube_pcs.png"}) {
+      qube: file(relativePath: {eq: "images/qube_pcs.png"}) {
                 id
                 childImageSharp {
                 fluid(maxWidth: 5000) {
@@ -62,7 +62,7 @@ const Projects = ({onCursor}) => {
           }
         }
       }           
-       fr: file(relativePath: {eq: "fr_logistics.png"}) {
+       fr: file(relativePath: {eq: "images/fr_logistics.png"}) {
                 id
                 childImageSharp {
                 fluid(maxWidth: 5000) {
@@ -70,7 +70,7 @@ const Projects = ({onCursor}) => {
           }
         }
       }            
-      design: file(relativePath: {eq: "design_studios.png"}) {
+      design: file(relativePath: {eq: "images/design_studios.png"}) {
                 id
                 childImageSharp {
                 fluid(maxWidth: 5000) {
@@ -78,7 +78,7 @@ const Projects = ({onCursor}) => {
           }
         }
       }            
-      chop: file(relativePath: {eq: "chop_flix.png"}) {
+      chop: file(relativePath: {eq: "images/chop_flix.png"}) {
                 id
                 childImageSharp {
                 fluid(maxWidth: 5000) {

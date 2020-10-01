@@ -50,8 +50,8 @@ const MenuOverlay = ({onCursor, setToggleMenu, toggleMenu}) => {
                                 </Link>
                                 <Link to='/#projects' onClick={removeMenu}><Flex className='menuText'><HeaderFive>02.</HeaderFive><HeaderThree>My
                                     projects</HeaderThree></Flex></Link>
-                                <Link to='/#expertise' onClick={removeMenu}><Flex
-                                    className='menuText'><HeaderFive>03.</HeaderFive><HeaderThree>Expertise</HeaderThree></Flex>
+                                <Link to='/blog' onClick={removeMenu}><Flex
+                                    className='menuText'><HeaderFive>03.</HeaderFive><HeaderThree>Blog</HeaderThree></Flex>
                                 </Link>
                                 <Link to='/#contact' onClick={removeMenu}><Flex className='menuText'><HeaderFive>04.</HeaderFive><HeaderThree>Contact
                                     me </HeaderThree></Flex></Link>

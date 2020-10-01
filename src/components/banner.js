@@ -25,7 +25,7 @@ const Banner = ({onCursor, theme}) => {
 
     const images = useStaticQuery(graphql`
     query {
-        dark: file(relativePath: {eq: "nii.jpg"}) {
+        dark: file(relativePath: {eq: "images/nii.jpg"}) {
             id
             childImageSharp {
             fluid(maxWidth: 5000) {
@@ -33,7 +33,7 @@ const Banner = ({onCursor, theme}) => {
         }
     }
   }
-            light: file(relativePath: {eq: "nii2.jpg"}) {
+            light: file(relativePath: {eq: "images/nii2.jpg"}) {
                 id
                 childImageSharp {
                 fluid(maxWidth: 5000) {

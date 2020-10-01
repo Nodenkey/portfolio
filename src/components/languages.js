@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import {gsap, ScrollTrigger} from "gsap/all";
+import {gsap, ScrollTrigger, Power3} from "gsap/all";
 
 
 //Styled component
@@ -13,14 +13,15 @@ const Languages = () => {
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
-        gsap.from(icons.current.children, {
+        gsap.to(icons.current.children, {
             scrollTrigger: {
                 trigger: icons.current,
             },
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            stagger: .2
+            duration: 2,
+            y: 0,
+            opacity: 1,
+            stagger: .2,
+            ease: Power3.easeInOut,
         })
     }, [])
     return (

@@ -12,7 +12,6 @@ import {HeaderContainer, Logo, Menu, ThemeSwitch} from "../styles/headerStyles";
 import {NiiLogo, Sun} from "./svg";
 
 
-
 const Header = ({onCursor, toggleMenu, setToggleMenu, theme, themeToggler}) => {
     const headerRef = useRef(null);
     const menuUp = useRef(null);
@@ -48,32 +47,37 @@ const Header = ({onCursor, toggleMenu, setToggleMenu, theme, themeToggler}) => {
 
 
     useEffect(() => {
-        if(theme === 'default'){
-            if (window.pageYOffset > "150") {
-                headerRef.current.style.backgroundColor = 'black';
-            }else{
-                headerRef.current.style.backgroundColor = 'transparent';
-            }
-        }else{
-            if (window.pageYOffset > "150") {
-                headerRef.current.style.backgroundColor = 'white';
-            }else{
-                headerRef.current.style.backgroundColor = 'transparent';
-            }
-        }
-
-        window.onscroll = () => {
+        if (headerRef.current) {
             if (theme === 'default') {
                 if (window.pageYOffset > "150") {
-                    headerRef.current.style.backgroundColor = "black";
+                    headerRef.current.style.backgroundColor = 'black';
                 } else {
-                    headerRef.current.style.backgroundColor = "transparent";
+                    headerRef.current.style.backgroundColor = 'transparent';
                 }
             } else {
                 if (window.pageYOffset > "150") {
-                    headerRef.current.style.backgroundColor = "white";
+                    headerRef.current.style.backgroundColor = 'white';
                 } else {
-                    headerRef.current.style.backgroundColor = "transparent";
+                    headerRef.current.style.backgroundColor = 'transparent';
+                }
+            }
+        }
+
+
+        window.onscroll = () => {
+            if (headerRef.current) {
+                if (theme === 'default' && headerRef.current) {
+                    if (window.pageYOffset > "100") {
+                        headerRef.current.style.backgroundColor = "black";
+                    } else {
+                        headerRef.current.style.backgroundColor = "transparent";
+                    }
+                } else {
+                    if (window.pageYOffset > "100") {
+                        headerRef.current.style.backgroundColor = "white";
+                    } else {
+                        headerRef.current.style.backgroundColor = "transparent";
+                    }
                 }
             }
         }
@@ -103,7 +107,7 @@ const Header = ({onCursor, toggleMenu, setToggleMenu, theme, themeToggler}) => {
                     </Menu>
                     <Logo
                         onMouseEnter={() => onCursor('hovered')}
-                        onMouseLeave={onCursor}
+                        onMouseLeave={onCursor} onClick={onCursor}
                     >
                         <Link to='/'>
                             <NiiLogo/>

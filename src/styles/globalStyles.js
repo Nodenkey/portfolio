@@ -1,6 +1,7 @@
 import styled, {css} from "styled-components";
 import {palette} from "../utils";
 import {typeScale} from "../utils/typeScale";
+import {motion} from "framer-motion";
 
 
 //Divs & Containers
@@ -38,6 +39,9 @@ export const Flex = styled.div`
   
   ${props => props.vertical && css`
     flex-direction: column;
+  `};  
+  ${props => props.wrapContainer && css`
+    flex-wrap: wrap;
   `};
   
   ${props => props.spaceBetween && css`
@@ -57,16 +61,19 @@ export const Flex = styled.div`
   }
 `;
 
-export const Grid = styled.div`
+export const Grid = styled(motion.div)`
   display: grid;
   width: 100%;
   grid-gap: ${props => props.gapPhone || '0'};
-  grid-template-columns: 1fr;
+  grid-template-rows: auto;
   align-items: center;
   justify-items: center;
   @media only screen and (min-width: 600px){
       grid-template-columns: ${props => typeof props.num === "object" ? `${props.num.toString()}` : `repeat(${props.num}, 1fr)`};
       grid-gap: ${props => props.gap || '100px'};
+      ${props => props.auto && css`
+          grid-template-columns: auto;
+      `}
   }
 `;
 
@@ -248,4 +255,31 @@ export const Divider = styled.div`
   background-color: ${props => props.theme.borderColor};
 `;
 
+export const Overlay = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, .6);
+`;
+
+export const Circle = styled.div`
+  position: absolute;
+  background-color: ${palette.radical};
+  opacity: .3;
+  border-radius: 50%;
+  width: ${props => props.size};
+  height: ${props => props.size};
+  top: ${props => props.top ?  props.top : "auto"};
+  bottom: ${props => props.bottom ? props.bottom : "auto"};
+  right: ${props => props.right ? props.right : "auto"};
+  left: ${props => props.left ? props.left : "auto"};
+  z-index: -1;
+`;
+
+export const GreyedParagraph = styled(Paragraph)`
+  color: ${props => props.theme.secondaryTextColor};
+`;
 

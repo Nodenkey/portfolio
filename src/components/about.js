@@ -39,7 +39,7 @@ const About = ({onCursor}) => {
 
     const image = useStaticQuery(graphql`
     query {
-        me: file(relativePath: {eq: "laptop.jpg"}) {
+        me: file(relativePath: {eq: "images/laptop.jpg"}) {
             id
             childImageSharp {
             fluid(maxWidth: 5000) {
@@ -70,7 +70,7 @@ const About = ({onCursor}) => {
                         of leasing, creative design, portfolios, logistics, E-commerce. Web design and development is my
                         way
                         of feeling alive. And I make it my topmost priority to learn more about it each and every day.
-                        You can always reach out to me <Link to='/#contact' onMouseEnter={() => onCursor('hovered')}
+                        You can always reach out to me <Link to='/# contact' onMouseEnter={() => onCursor('hovered')}
                                                              onMouseLeave={onCursor}>here!</Link></Paragraph>
                 </Container>
             </Grid>
