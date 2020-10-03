@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Frontend Web Developer`,
+    title: `Nii Odenkey`,
     description: `Nii Odenkey is a frontend web developer based in Accra Ghana.`,
     url: "https://niiodenkey.me",
     image: "src/images/logo2.png",

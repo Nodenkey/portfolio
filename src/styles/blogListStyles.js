@@ -4,7 +4,7 @@ import {motion} from "framer-motion";
 
 export const BlogListWrapper = styled(Container)`
   padding: 100px 5vw;
-  transform: translateY(100px);
+  transform: translateY(200px);
   opacity: 0;
   div{
   width: 100%;
