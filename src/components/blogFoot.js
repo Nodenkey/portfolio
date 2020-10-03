@@ -7,7 +7,7 @@ const BlogFoot = ({data, next, onCursor}) => {
     // const path = `/blog/${next.fields.slug}`;
     const post = data.markdownRemark;
     const {tag} = useContext(TagContext);
-    // const [included, setIncluded] = useState(false);
+    const [included, setIncluded] = useState(false);
 
     useEffect(() => {
         next && (next.frontmatter.tags.map(nextTag =>
