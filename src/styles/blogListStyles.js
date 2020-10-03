@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import {Container} from "./globalStyles";
-import {motion} from "framer-motion";
 
 export const BlogListWrapper = styled(Container)`
-  padding: 100px 5vw;
+  padding: 0 5vw 100px;
   transform: translateY(200px);
   opacity: 0;
+  margin-top: 100px;
   div{
   width: 100%;
   }
@@ -14,9 +14,8 @@ export const BlogListWrapper = styled(Container)`
     color: ${props => props.theme.primaryTextColor};
   }
   @media only screen and (min-width: 600px){
-      padding: 100px 0;
+      padding: 0 0 100px 0;
   }
 `;
 
-export const Cont = styled(motion.div)``;
 
