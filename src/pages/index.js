@@ -12,7 +12,7 @@ const IndexPage = () => {
 
         return (
             <Layout>
-                    <SEO title="Nii Odenkey"/>
+                    <SEO title="Frontend Web developer"/>
                     <Banner/>
                     <About/>
                     <Projects/>

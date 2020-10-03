@@ -50,9 +50,11 @@ module.exports.createPages = async ({graphql, actions}) => {
             }
         }
     `)
+    const posts = res.data.allMarkdownRemark.edges;
+
 
     // create the page on each response
-    res.data.allMarkdownRemark.edges.forEach((edge, index) => {
+    posts.forEach((edge, index) => {
         // create the page
         createPage({
             // specify the path to the template
@@ -62,8 +64,7 @@ module.exports.createPages = async ({graphql, actions}) => {
             // specify what you want to pass down each of the page to identify the page
             context: {
                 slug: edge.node.fields.slug,
-                prev: index === 0 ? null : res.data.allMarkdownRemark.edges[index - 1].node,
-                next: index === res.data.allMarkdownRemark.edges.length - 1 ? res.data.allMarkdownRemark.edges[0].node : res.data.allMarkdownRemark.edges[index + 1].node
+                next: index === posts.length - 1 ? posts[0].node : posts[index + 1].node
             }
         })
     })

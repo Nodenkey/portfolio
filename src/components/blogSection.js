@@ -8,7 +8,7 @@ const BlogSection = () => {
     return (
         <BlogSectionWrapper>
             <HeaderThree style={{marginBottom: 50}}>Latest Blog Posts</HeaderThree>
-            <BlogList/>
+            <BlogList slice={true}/>
         </BlogSectionWrapper>
     );
 };

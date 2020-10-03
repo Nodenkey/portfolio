@@ -1,6 +1,6 @@
 import React from 'react';
 import {BlogCardTextArea, BlogCardWrapper,BlogTitle, Date, Rule, Tag} from "../styles/blogCardStyles";
-import {Flex, GreyedParagraph} from "../styles/globalStyles";
+import {Flex} from "../styles/globalStyles";
 import {v4 as uuidv4} from "uuid";
 
 const BlogCard = ({title, date, summary, image, tags}) => {

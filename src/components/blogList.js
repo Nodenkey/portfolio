@@ -5,10 +5,9 @@ import BlogCard from "./blogCard";
 import {Grid} from "../styles/globalStyles";
 import {BlogListWrapper} from "../styles/blogListStyles";
 import {gsap, ScrollTrigger} from "gsap/all";
-import BlogFilter from "./blogFilter";
 import TagContext from "../context/tagContext";
 
-const BlogList = ({onCursor}) => {
+const BlogList = ({slice}) => {
     const wrapper = useRef(null);
     const {tag} = useContext(TagContext);
 
@@ -19,7 +18,7 @@ const BlogList = ({onCursor}) => {
                     node {
                         frontmatter {
                             title
-                            date
+                            date(formatString: "MMMM DD, YYYY")
                             summary
                             tags
                             image
@@ -41,9 +40,9 @@ const BlogList = ({onCursor}) => {
         gsap.to(wrapper.current, {
             scrollTrigger: {
                 trigger: wrapper.current,
-                start: '10% 50%'
+                start: '-100px 50%'
             },
-            duration: 1,
+            duration: 2,
             y: 0,
             opacity: 1,
             stagger: .4
@@ -52,22 +51,35 @@ const BlogList = ({onCursor}) => {
 
     return (
         <BlogListWrapper ref={wrapper}>
-            <BlogFilter onCursor={onCursor}/>
             <Grid layout num={["repeat(auto-fit, 350px)"]} gap='50px' gapPhone='50px'>
                 {
-                    blogData.allMarkdownRemark.edges.filter(({node}) =>
+                    slice ?
+                        blogData.allMarkdownRemark.edges.slice(0,3).filter(({node}) =>
                             tag === 'All Tags' ? node : node.frontmatter.tags.includes(tag)
-                    ).map(({node}) => {
-                        const frontmatter = node.frontmatter;
-                        const title = frontmatter.title;
-                        const date = frontmatter.date;
-                        const summary = frontmatter.summary;
-                        const tags = frontmatter.tags;
-                        const image = frontmatter.image;
-                        const path = `/blog/${node.fields.slug}`;
-                        return <div key={uuidv4()}><Link to={path}><BlogCard title={title} date={date} summary={summary}
-                                                                             tags={tags} image={image}/></Link></div>
-                    })
+                        ).map(({node}) => {
+                            const frontmatter = node.frontmatter;
+                            const title = frontmatter.title;
+                            const date = frontmatter.date;
+                            const summary = frontmatter.summary;
+                            const tags = frontmatter.tags;
+                            const image = frontmatter.image;
+                            const path = `/blog/${node.fields.slug}`;
+                            return <div key={uuidv4()}><Link to={path}><BlogCard title={title} date={date} summary={summary}
+                                                                                 tags={tags} image={image}/></Link></div>
+                        }) :
+                        blogData.allMarkdownRemark.edges.filter(({node}) =>
+                            tag === 'All Tags' ? node : node.frontmatter.tags.includes(tag)
+                        ).map(({node}) => {
+                            const frontmatter = node.frontmatter;
+                            const title = frontmatter.title;
+                            const date = frontmatter.date;
+                            const summary = frontmatter.summary;
+                            const tags = frontmatter.tags;
+                            const image = frontmatter.image;
+                            const path = `/blog/${node.fields.slug}`;
+                            return <div key={uuidv4()}><Link to={path}><BlogCard title={title} date={date} summary={summary}
+                                                                                 tags={tags} image={image}/></Link></div>
+                        })
                 }
             </Grid>
         </BlogListWrapper>

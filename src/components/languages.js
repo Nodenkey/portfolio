@@ -17,7 +17,7 @@ const Languages = () => {
             scrollTrigger: {
                 trigger: icons.current,
             },
-            duration: 2,
+            duration: 1,
             y: 0,
             opacity: 1,
             stagger: .2,

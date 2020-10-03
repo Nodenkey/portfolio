@@ -5,7 +5,8 @@ import {Flex} from "./globalStyles";
 export const FilterWrapper = styled(Flex)`
   background-color: ${props => props.theme.sheetColor};
   padding: 20px 10px;
-  margin-bottom: 50px;
+  margin-top: 100px;
+  margin-bottom: -50px;
   .active{
     background-color: ${palette.radical};
   }

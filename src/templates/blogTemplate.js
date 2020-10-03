@@ -4,6 +4,7 @@ import {graphql} from "gatsby";
 import MainBlog from "../components/mainBlog";
 import BlogFoot from "../components/blogFoot";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+import SEO from "../components/seo";
 
 
 //use graphql to query the content with the slug as a variable which remember is passed down via the createPage's context
@@ -20,7 +21,7 @@ export const query = graphql`
             {
             frontmatter {
                 title
-                date
+                date(formatString: "MMMM DD, YYYY")
                 tags
                 summary 
                 image
@@ -45,11 +46,12 @@ const BlogTemplate = ({data, pageContext}) => {
     const image = frontmatter.image;
     const time = data.markdownRemark.timeToRead;
     const body = data.markdownRemark.html;
-    const {next} = pageContext
+    const {next} = pageContext;
 
 
     return (
         <Layout>
+            <SEO title={title}/>
             <MainBlog tags={tags} date={date} title={title} summary={summary} time={time} body={body} image={image}/>
             <BlogFoot next={next} data={data}/>
         </Layout>

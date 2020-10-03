@@ -3,7 +3,7 @@ import TagContext from "../context/tagContext";
 
 const TagRoot = ({ children }) => {
     const [tag, setTag] = useState('All Tags');
-    const allTags = ['All Tags', 'Gatsby', 'React', 'Javascript'];
+    const allTags = ['All Tags', 'Javascript'].sort();
     const changeTag = tag => setTag(tag);
 
     return (
