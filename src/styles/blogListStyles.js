@@ -3,8 +3,6 @@ import {Container} from "./globalStyles";
 
 export const BlogListWrapper = styled(Container)`
   padding: 0 5vw 100px;
-  transform: translateY(200px);
-  opacity: 0;
   margin-top: 100px;
   div{
   width: 100%;
