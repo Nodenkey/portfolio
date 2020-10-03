@@ -79,8 +79,8 @@ arr.reverse()
 //output: ["d", "c", "b", "a"]
 ``` 
 
-Finally, we use our third and final javascript function in our function, the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank">join javascript method</a>.
-This method is an array method creates and returns a new string by concatenating all of its elements in an array. It is separated by commas, or a specified separator string. If the array has only one item, then that item will
+We now use our third and final javascript method in our function, the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank">join javascript method</a>.
+This method is an array method which creates and returns a new string by concatenating all of its elements in an array. It is separated by commas, or a specified separator string. If the array has only one item, then that item will
 be returned without using the separator.
 An example is shown below:
 
@@ -177,7 +177,7 @@ This method is very similar to the first method (The reverse method + Split). Th
 can be identified by the three dots before the variable being spread (...str).
 So what exactly does the spread syntax do? The spread syntax (...) allows an iterable such as an array expression 
 or string to be expanded in places where zero or more arguments or elements are expected, or an object expression is to be expanded.
-are expected. It acts as its name suggests; it spreads itself into the object it is introduced into.
+It acts as its name suggests; it spreads itself into the object it is introduced into.
 It kind of is like, picking a chunk of butter from its container and spreading it on bread. The content of the butter container is transferred 
 to the surface of that bread.
 
@@ -200,7 +200,7 @@ joins the array into a string, and the return statement returns the reversed str
 
 ##### 4. The Reduce Method 
 A provided string could also be reversed by using javascript's <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce" target="_blank">reduce method.</a>
-This method works under the hood like th for...of loop demonstrated above but makes the code
+This method works under the hood like the for...of loop demonstrated above, but makes the code
 shorter and cleaner.
 
 Let's see it in action.
