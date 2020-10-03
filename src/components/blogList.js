@@ -37,13 +37,13 @@ const BlogList = ({slice}) => {
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
-        gsap.to(wrapper.current, {
+        gsap.from(wrapper.current, {
             scrollTrigger: {
                 trigger: wrapper.current,
                 start: '-100px 50%'
             },
             duration: 2,
-            y: 0,
+            y: 100,
             opacity: 1,
             stagger: .4
         })
