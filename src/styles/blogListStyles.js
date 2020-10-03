@@ -3,8 +3,9 @@ import {Container} from "./globalStyles";
 import {motion} from "framer-motion";
 
 export const BlogListWrapper = styled(Container)`
-  padding: 100px 5vw;
+  padding: 0 5vw 100px;
   transform: translateY(200px);
+  margin-top: 100px;
   opacity: 0;
   div{
   width: 100%;
@@ -14,7 +15,7 @@ export const BlogListWrapper = styled(Container)`
     color: ${props => props.theme.primaryTextColor};
   }
   @media only screen and (min-width: 600px){
-      padding: 100px 0;
+      padding: 0;
   }
 `;
 
