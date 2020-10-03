@@ -44,7 +44,7 @@ const BlogList = ({slice}) => {
             },
             duration: 2,
             y: 100,
-            opacity: 1,
+            opacity: 0,
             stagger: .4
         })
     }, []);
