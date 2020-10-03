@@ -140,25 +140,25 @@ let reversed = ''
 character = "a"
 reversed = ""
 
-reversed = character + reversed == "a"
+reversed = character + reversed //return "a"
 
 //second loop
 character = "b"
 reversed = "a"
 
-reversed = character + reversed == "ba"
+reversed = character + reversed //return "ba"
 
 //third loop
 character = "c"
 reversed = "ba"
 
-reversed = character + reversed == "cba"
+reversed = character + reversed //return "cba"
 
 //third loop
 character = "d"
 reversed = "cba"
 
-reversed = character + reversed == "dcba"
+reversed = character + reversed //return "dcba"
 ```
 Hence, at the end, the returned string from the loop is its reserved form.
 
@@ -235,25 +235,25 @@ arr.reduce((accumulator, currentValue) => {
 accumulator = ""
 currentValue = "a"
 
-accumulator = accumulator + currentValue == "a"
+accumulator = accumulator + currentValue //return "a"
 
 //next
 accumulator = "a"
 currentValue = "b"
 
-accumulator = accumulator + currentValue == "ba"
+accumulator = accumulator + currentValue //return "ba"
 
 //next
 accumulator = "ba"
 currentValue = "b"
 
-accumulator = accumulator + currentValue == "cba"
+accumulator = accumulator + currentValue //return "cba"
 
 //next
 accumulator = "cba"
 currentValue = "d"
 
-accumulator = accumulator + currentValue == "dcba"
+accumulator = accumulator + currentValue //return "dcba"
 ```
  
  The initializer can however be removed as was done in the original answer, to make this method even shorter!
