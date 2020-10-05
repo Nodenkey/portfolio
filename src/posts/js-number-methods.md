@@ -4,14 +4,14 @@ date: "2020-10-02"
 author: "Nii Odenkey Abbey"
 tags: ["Javascript"]
 image: "reverse.jpg"
-summary: "There are several ways one can reverse given strings in javascript. Lets take a look at four(4) of them."
+summary: "There are several ways one can reverse given strings in javascript. Let us take a look at four(4) of them."
 ---
  
 We are going to talk about some methods you can use to
-reverse a given string in the javascript language. Why? because like a car, we enjoy moving forward,
-but there comes a time when going in reverse might be the only option to take you out of a tight corner. 
+reverse a given string in the javascript language. Why? because like a car, depite the fact that we enjoy moving forward, 
+there comes a time when going in reverse might be the only option to take you out of a tight corner. 
 
-In this blog, we are going to cover some general javascript principles and methods. We are also going to answer one of
+In this blog, we are going to cover some general javascript principles and methods, while answering one of the 
 questions that could come up at a javascript interview.  
 
 Enough of the introduction. Let's dive right in.
@@ -79,8 +79,8 @@ arr.reverse()
 //output: ["d", "c", "b", "a"]
 ``` 
 
-We now use our third and final javascript method in our function, the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank">join javascript method</a>.
-This method is an array method which creates and returns a new string by concatenating all of its elements in an array. It is separated by commas, or a specified separator string. If the array has only one item, then that item will
+We now use our third and final javascript method in our function, the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank">join method</a>. It does opposite to what the split method does. 
+It is an array method which creates and returns a new string by concatenating all of its elements in an array. It is separated by commas, or a specified separator string. If the array has only one item, then that item will
 be returned without using the separator.
 An example is shown below:
 
@@ -122,9 +122,9 @@ one to keep the reversed string (the reversed variable), and one to store each c
 parameter passed in.
 
 In the next line, the for...of loop is used to loop through the string which was passed into the function.
-In our for...of loop, the character is the loop's variable.On each iteration, a value of a different property 
-is assigned to this variable. In this case, the characters of the string passed in the function.
-The string passed is the iterable, which is the object whose iterable properties are iterated. In the loop, 
+In our for...of loop, the character is the loop's variable. On each iteration, a value of a different property 
+is assigned to this variable which in this case, is the characters of the string passed in the function.
+The string(str) is the iterable, which is the object whose iterable properties are iterated. In the loop, 
 the character is concatenated with the reversed string. This ends up reversing the string eventually.
 
 The code is broken down below: 
@@ -160,7 +160,7 @@ reversed = "cba"
 
 reversed = character + reversed //return "dcba"
 ```
-Hence, at the end, the returned string from the loop is its reserved form.
+Hence, at the end, the returned string from the loop is its reversed form.
 
  
 ##### 3. The Reverse Method + Spread Syntax
@@ -217,8 +217,10 @@ In the function above, after accepting the string, the string is split using the
 function then takes over. The reduce array is used to "reduce" a javascript array into a single value
 by accumulating its value.
 
-The reduce function takes two parameters: a callback function and an initializer. The callback function also takes two
-parameters: the accumulator and current value.
+The reduce function takes two parameters: a callback function and an initializer. The callback function also takes two parameters: the accumulator and current 
+value. The initializer refers to where the loop begins. On the 
+first loop, the initializer's value is passed to the accumulator to begin the loop. If the initializer is not declared, on the first loop, 
+the accumulator takes the first value in the array as its value, whiles the current value takes the second value in the array as its value.
 
 Let's see this in action. Notice how similar it is to the loop used above.
 
@@ -237,7 +239,7 @@ currentValue = "a"
 
 accumulator = accumulator + currentValue //return "a"
 
-//next
+//next (If the initializer had not been declared, the loop would have began here!)
 accumulator = "a"
 currentValue = "b"
 
