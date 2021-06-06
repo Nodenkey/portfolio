@@ -21,14 +21,25 @@ export const projects = [
     },
     {
         key: '00003',
-        name: 'fr logistics',
-        image: 'fr',
-        backgroundColor: 'black',
-        headerColor: 'white',
+        name: 'evodia',
+        image: 'evodia',
+        backgroundColor: '#222020',
+        headerColor: '#C75A56',
         textColor: '#999999',
-        description: 'This website was developed for FrLogistics, a logistics moving and warehousing company in Ghana. It was designed with webflow and developed with HTML, CSS and javascript. The backend was developed using Django. I was mainly involved with the frontend but helped as well with setting up part of the backend.',
-        site: 'https://frlogisticsltd.com/',
+        description: 'This e-commerce web app was developed for a perfume selling company. It was designed with adobe xd and developed with next js, paystack, styled components, redux, and gsap. It was then hosted on vercel.',
+        site: 'https://evodia.vercel.app'
+
     },
+    // {
+    //     key: '00004',
+    //     name: 'fr logistics',
+    //     image: 'fr',
+    //     backgroundColor: 'black',
+    //     headerColor: 'white',
+    //     textColor: '#999999',
+    //     description: 'This website was developed for FrLogistics, a logistics moving and warehousing company in Ghana. It was designed with webflow and developed with HTML, CSS and javascript. The backend was developed using Django. I was mainly involved with the frontend but helped as well with setting up part of the backend.',
+    //     site: 'https://frlogisticsltd.com/',
+    // },
     {
         key: '00004',
         name: 'qube pcs',

@@ -32,7 +32,7 @@ const BlogBanner = () => {
     return (
         <BlogBannerWrapper>
             <Img fluid={banner.bannerImage.childImageSharp.fluid} alt="blog banner"
-                 imgStyle={{objectPosition: "top center"}}/>
+                 imgStyle={{objectPosition: "50% 50%"}}/>
             <Overlay/>
             <BlogBannerText vertical center ref={bannerText}>
                 <HeaderThree>Welcome to my blog!</HeaderThree>

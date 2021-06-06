@@ -62,6 +62,14 @@ const Projects = ({onCursor}) => {
           }
         }
       }           
+       evodia: file(relativePath: {eq: "images/evodia.png"}) {
+                id
+                childImageSharp {
+                fluid(maxWidth: 5000) {
+                    ...GatsbyImageSharpFluid
+          }
+        }
+      }  
        fr: file(relativePath: {eq: "images/fr_logistics.png"}) {
                 id
                 childImageSharp {
@@ -69,7 +77,7 @@ const Projects = ({onCursor}) => {
                     ...GatsbyImageSharpFluid
           }
         }
-      }            
+      }           
       design: file(relativePath: {eq: "images/design_studios.png"}) {
                 id
                 childImageSharp {
