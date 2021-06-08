@@ -72,12 +72,12 @@ const MenuOverlay = ({onCursor, setToggleMenu, toggleMenu}) => {
                                    onMouseEnter={() => onCursor('hovered')}
                                    onMouseLeave={onCursor}
                                 ><FontAwesomeIcon icon={faFacebookF}/></a>
-                                <a href="https://twitter.com/nii_odenkey_" target='_blank'
+                                <a href="https://twitter.com/nii_dis" target='_blank'
                                    rel='noopener noreferrer'
                                    onMouseEnter={() => onCursor('hovered')}
                                    onMouseLeave={onCursor}
                                 ><FontAwesomeIcon icon={faTwitter}/></a>
-                                <a href="https://www.instagram.com/n_odenkey/" target='_blank'
+                                <a href="https://www.instagram.com/nii_dis/" target='_blank'
                                    rel='noopener noreferrer'
                                    onMouseEnter={() => onCursor('hovered')}
                                    onMouseLeave={onCursor}

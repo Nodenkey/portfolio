@@ -41,11 +41,11 @@ const Footer = ({onCursor}) => {
                        onMouseEnter={() => onCursor('hovered')}
                        onMouseLeave={onCursor}
                        target='_blank'><FontAwesomeIcon icon={faFacebookF}/></a>
-                    <a href="https://twitter.com/nii_odenkey_" target='_blank'
+                    <a href="https://twitter.com/nii_dis" target='_blank'
                        onMouseEnter={() => onCursor('hovered')}
                        onMouseLeave={onCursor}
                        rel='noopener noreferrer'><FontAwesomeIcon icon={faTwitter}/></a>
-                    <a href="https://www.instagram.com/n_odenkey/" target='_blank'
+                    <a href="https://www.instagram.com/nii_dis/" target='_blank'
                        onMouseEnter={() => onCursor('hovered')}
                        onMouseLeave={onCursor}
                        rel='noopener noreferrer'><FontAwesomeIcon icon={faInstagram}/></a>

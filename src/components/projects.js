@@ -78,7 +78,15 @@ const Projects = ({onCursor}) => {
           }
         }
       }           
-      design: file(relativePath: {eq: "images/design_studios.png"}) {
+      design : file(relativePath: {eq: "images/design_studios.png"}) {
+                id
+                childImageSharp {
+                fluid(maxWidth: 5000) {
+                    ...GatsbyImageSharpFluid
+          }
+        }
+      } 
+      koffee : file(relativePath: {eq: "images/koffee.png"}) {
                 id
                 childImageSharp {
                 fluid(maxWidth: 5000) {

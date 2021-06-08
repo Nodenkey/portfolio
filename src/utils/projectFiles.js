@@ -62,6 +62,16 @@ export const projects = [
     },
     {
         key: '00006',
+        name: 'koffee.',
+        image: 'koffee',
+        backgroundColor: 'white',
+        headerColor: '#6F4E37',
+        textColor: 'black',
+        description: 'Koffee was developed with gatsby and gsap. It was developed to for a conveniently named imaginary coffee shop: "Koffee". It was hosted on netlify.',
+        site: 'https://koffeeshop.netlify.app/',
+    },
+    {
+        key: '00007',
         name: 'chop flix',
         image: 'chop',
         backgroundColor: 'black',
